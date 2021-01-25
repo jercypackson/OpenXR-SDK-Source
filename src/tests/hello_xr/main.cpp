@@ -286,16 +286,20 @@ int main(int argc, char* argv[]) {
                     // Throttle loop since xrWaitFrame won't be called.
                     std::this_thread::sleep_for(std::chrono::milliseconds(250));
                 }
+                quitKeyPressed = false;
             }
 
         } while (!quitKeyPressed && requestRestart);
 
+        system("pause");
         return 0;
     } catch (const std::exception& ex) {
         Log::Write(Log::Level::Error, ex.what());
+        system("pause");
         return 1;
     } catch (...) {
         Log::Write(Log::Level::Error, "Unknown Error");
+        system("pause");
         return 1;
     }
 }

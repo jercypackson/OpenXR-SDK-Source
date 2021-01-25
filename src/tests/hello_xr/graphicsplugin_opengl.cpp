@@ -2,9 +2,14 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
+#include <iostream>
+#include <fstream>
+#include <sstream>
+
 #include "pch.h"
 #include "common.h"
 #include "geometry.h"
+#include "data.h"
 #include "graphicsplugin.h"
 
 #ifdef XR_USE_GRAPHICS_API_OPENGL
@@ -149,16 +154,36 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         InitializeResources();
     }
 
+
+    std::string readFile(std::string filename)
+    {
+        //https://github.com/JoeyDeVries/LearnOpenGL/blob/95ed602bd6e2a8b796ea84b363c7b4b31e6334ca/includes/learnopengl/shader_s.h#L17
+
+        std::string code;
+        std::ifstream file;
+        file.open(filename);
+        std::stringstream stream;
+        stream << file.rdbuf();
+        file.close();
+        code = stream.str();
+        return code;
+    }
+
     void InitializeResources() {
         glGenFramebuffers(1, &m_swapchainFramebuffer);
-
+        
         GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertexShader, 1, &VertexShaderGlsl, nullptr);
+        auto vsString = readFile("shaders/vertex.glsl");
+        auto vsCharArr = vsString.c_str();
+        glShaderSource(vertexShader, 1, &vsCharArr, nullptr);
         glCompileShader(vertexShader);
         CheckShader(vertexShader);
 
+
         GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragmentShader, 1, &FragmentShaderGlsl, nullptr);
+        auto fsString = readFile("shaders/fragment.glsl");
+        auto fsCharArr = fsString.c_str();
+        glShaderSource(fragmentShader, 1, &fsCharArr, nullptr);
         glCompileShader(fragmentShader);
         CheckShader(fragmentShader);
 
@@ -178,21 +203,24 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
 
         glGenBuffers(1, &m_cubeVertexBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, m_cubeVertexBuffer);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(Geometry::c_cubeVertices), Geometry::c_cubeVertices, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Geometry::data) * Geometry::data.size(), Geometry::data.data(), GL_STATIC_DRAW);
 
-        glGenBuffers(1, &m_cubeIndexBuffer);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Geometry::c_cubeIndices), Geometry::c_cubeIndices, GL_STATIC_DRAW);
+        auto ds = sizeof(Geometry::data);
+        auto sdf = &Geometry::data;
+    	
+        //glGenBuffers(1, &m_cubeIndexBuffer);
+        //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
+        //glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Geometry::c_cubeIndices), Geometry::c_cubeIndices, GL_STATIC_DRAW);
 
         glGenVertexArrays(1, &m_vao);
         glBindVertexArray(m_vao);
         glEnableVertexAttribArray(m_vertexAttribCoords);
         glEnableVertexAttribArray(m_vertexAttribColor);
         glBindBuffer(GL_ARRAY_BUFFER, m_cubeVertexBuffer);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
-        glVertexAttribPointer(m_vertexAttribCoords, 3, GL_FLOAT, GL_FALSE, sizeof(Geometry::Vertex), nullptr);
-        glVertexAttribPointer(m_vertexAttribColor, 3, GL_FLOAT, GL_FALSE, sizeof(Geometry::Vertex),
-                              reinterpret_cast<const void*>(sizeof(XrVector3f)));
+        //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
+        glVertexAttribPointer(m_vertexAttribCoords, 4, GL_FLOAT, GL_FALSE, sizeof(Geometry::Iris), nullptr);
+        glVertexAttribPointer(m_vertexAttribColor, 3, GL_FLOAT, GL_FALSE, sizeof(Geometry::Iris),
+                              reinterpret_cast<const void*>(sizeof(XrVector4f)));
     }
 
     void CheckShader(GLuint shader) {
@@ -288,6 +316,45 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         return depthTexture;
     }
 
+    XrVector4f project(XrVector4f v) {
+
+        //collumn major
+        float m5x5[25];
+
+        // 0 5 10 15 20
+        // 1 6 11 16 21
+        // 2 7 12 17 22
+        // 3 8 13 18 23
+        // 4 9 14 19 24
+
+        float min1 = 4.3f;
+        float min2 = 2.0f;
+        float min3 = 1.0f;
+        float min4 = 0.1f;
+
+        float max1 = 7.9f;
+        float max2 = 4.4f;
+        float max3 = 6.9f;
+        float max4 = 2.5f;
+
+        m5x5[ 0] = 2.0f / (max1 - min1);
+        m5x5[ 6] = 2.0f / (max2 - min2);
+        m5x5[12] = 2.0f / (max3 - min3);
+        m5x5[18] = 2.0f / (max4 - min4);
+        m5x5[24] = 1.0f;
+
+        m5x5[20] = -(max1 + min1) / (max1 - min1);
+        m5x5[21] = -(max2 + min2) / (max2 - min2);
+        m5x5[22] = -(max3 + min3) / (max3 - min3);
+        m5x5[23] = -(max4 + min4) / (max4 - min4);
+
+
+        XrVector4f result = v;
+
+
+        return result;
+    }
+
     void RenderView(const XrCompositionLayerProjectionView& layerView, const XrSwapchainImageBaseHeader* swapchainImage,
                     int64_t swapchainFormat, const std::vector<Cube>& cubes) override {
         CHECK(layerView.subImage.imageArrayIndex == 0);  // Texture arrays not supported.
@@ -307,6 +374,7 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glEnable(GL_CULL_FACE);
         glEnable(GL_DEPTH_TEST);
 
+
         const uint32_t depthTexture = GetDepthTexture(colorTexture);
 
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, colorTexture, 0);
@@ -316,6 +384,7 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glClearColor(DarkSlateGray[0], DarkSlateGray[1], DarkSlateGray[2], DarkSlateGray[3]);
         glClearDepth(1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+        glPointSize(20.f);
 
         // Set shaders and uniform variables.
         glUseProgram(m_program);
@@ -335,17 +404,26 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glBindVertexArray(m_vao);
 
         // Render each cube
-        for (const Cube& cube : cubes) {
-            // Compute the model-view-projection transform and set it..
-            XrMatrix4x4f model;
-            XrMatrix4x4f_CreateTranslationRotationScale(&model, &cube.Pose.position, &cube.Pose.orientation, &cube.Scale);
-            XrMatrix4x4f mvp;
-            XrMatrix4x4f_Multiply(&mvp, &vp, &model);
-            glUniformMatrix4fv(m_modelViewProjectionUniformLocation, 1, GL_FALSE, reinterpret_cast<const GLfloat*>(&mvp));
+        // for (const Cube& cube : cubes) {
+        // Compute the model-view-projection transform and set it..
+        //XrMatrix4x4f model;
+        //XrMatrix4x4f_CreateIdentity(&model);
+        // XrMatrix4x4f_CreateTranslationRotationScale(&model, &cube.Pose.position, &cube.Pose.orientation, &cube.Scale);
+        //XrMatrix4x4f mvp;
+        //XrMatrix4x4f_Multiply(&mvp, &vp, &model);
+        glUniformMatrix4fv(m_modelViewProjectionUniformLocation, 1, GL_FALSE, reinterpret_cast<const GLfloat*>(&vp));
 
-            // Draw the cube.
-            glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(ArraySize(Geometry::c_cubeIndices)), GL_UNSIGNED_SHORT, nullptr);
-        }
+        // Draw the cube.
+        // glDrawElements(GL_POINTS, static_cast<GLsizei>(ArraySize(Geometry::c_cubeIndices)), GL_UNSIGNED_SHORT, nullptr);
+
+        glDrawArrays(GL_POINTS, 0, static_cast<GLsizei>(Geometry::data.size() * sizeof(Geometry::Iris)));
+        //}
+
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, m_swapchainFramebuffer);
+        glBlitFramebuffer(layerView.subImage.imageRect.offset.x, layerView.subImage.imageRect.offset.y,
+                          layerView.subImage.imageRect.extent.width, layerView.subImage.imageRect.extent.height, 0, 0, 640, 480,
+                          GL_COLOR_BUFFER_BIT, GL_LINEAR);
 
         glBindVertexArray(0);
         glUseProgram(0);
