@@ -20,32 +20,32 @@
 namespace {
 constexpr float DarkSlateGray[] = {0.184313729f, 0.309803933f, 0.309803933f, 1.0f};
 
-static const char* VertexShaderGlsl = R"_(
-    #version 410
-
-    in vec3 VertexPos;
-    in vec3 VertexColor;
-
-    out vec3 PSVertexColor;
-
-    uniform mat4 ModelViewProjection;
-
-    void main() {
-       gl_Position = ModelViewProjection * vec4(VertexPos, 1.0);
-       PSVertexColor = VertexColor;
-    }
-    )_";
-
-static const char* FragmentShaderGlsl = R"_(
-    #version 410
-
-    in vec3 PSVertexColor;
-    out vec4 FragColor;
-
-    void main() {
-       FragColor = vec4(PSVertexColor, 1);
-    }
-    )_";
+//static const char* VertexShaderGlsl = R"_(
+//    #version 410
+//
+//    in vec3 VertexPos;
+//    in vec3 VertexColor;
+//
+//    out vec3 PSVertexColor;
+//
+//    uniform mat4 ModelViewProjection;
+//
+//    void main() {
+//       gl_Position = ModelViewProjection * vec4(VertexPos, 1.0);
+//       PSVertexColor = VertexColor;
+//    }
+//    )_";
+//
+//static const char* FragmentShaderGlsl = R"_(
+//    #version 410
+//
+//    in vec3 PSVertexColor;
+//    out vec4 FragColor;
+//
+//    void main() {
+//       FragColor = vec4(PSVertexColor, 1);
+//    }
+//    )_";
 
 struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
     OpenGLGraphicsPlugin(const std::shared_ptr<Options>& /*unused*/, const std::shared_ptr<IPlatformPlugin> /*unused*/&){};
@@ -205,8 +205,8 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glBindBuffer(GL_ARRAY_BUFFER, m_cubeVertexBuffer);
         glBufferData(GL_ARRAY_BUFFER, sizeof(Geometry::data) * Geometry::data.size(), Geometry::data.data(), GL_STATIC_DRAW);
 
-        auto ds = sizeof(Geometry::data);
-        auto sdf = &Geometry::data;
+        //auto ds = sizeof(Geometry::data);
+        //auto sdf = &Geometry::data;
     	
         //glGenBuffers(1, &m_cubeIndexBuffer);
         //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
@@ -373,7 +373,7 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glCullFace(GL_BACK);
         glEnable(GL_CULL_FACE);
         glEnable(GL_DEPTH_TEST);
-
+        
 
         const uint32_t depthTexture = GetDepthTexture(colorTexture);
 
@@ -404,7 +404,8 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glBindVertexArray(m_vao);
 
         // Render each cube
-        // for (const Cube& cube : cubes) {
+        //for (const Cube& cube : cubes) {
+
         // Compute the model-view-projection transform and set it..
         //XrMatrix4x4f model;
         //XrMatrix4x4f_CreateIdentity(&model);
@@ -422,7 +423,8 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
         glBindFramebuffer(GL_READ_FRAMEBUFFER, m_swapchainFramebuffer);
         glBlitFramebuffer(layerView.subImage.imageRect.offset.x, layerView.subImage.imageRect.offset.y,
-                          layerView.subImage.imageRect.extent.width, layerView.subImage.imageRect.extent.height, 0, 0, 640, 480,
+                          layerView.subImage.imageRect.extent.width, layerView.subImage.imageRect.extent.height,
+                          0, 0, 640, 480,
                           GL_COLOR_BUFFER_BIT, GL_LINEAR);
 
         glBindVertexArray(0);

@@ -61,3 +61,20 @@ cmake_install.cmake
 cmake_uninstall.cmake
 src/loader/*.cmake
 
+*.tlog
+*.recipe
+*.pdb
+*.dll
+*.lib
+*.obj
+*.exp
+*.ilk
+*.res
+hello_xr.exe
+*.vcxproj.user
+include/openxr/*.h
+src/api_layers/*.cpp
+src/api_layers/*.hpp
+*.FileListAbsolute.txt
+src/tests/**/*.exe
+src/**/*.json

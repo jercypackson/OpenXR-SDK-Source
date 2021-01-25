@@ -69,7 +69,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -212,6 +212,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </None>
     <None Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\vert.glsl">
     </None>
+    <None Include="shaders\fragment.glsl" />
+    <None Include="shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\ZERO_CHECK.vcxproj">

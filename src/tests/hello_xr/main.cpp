@@ -252,7 +252,7 @@ int main(int argc, char* argv[]) {
         auto exitPollingThread = std::thread{[] {
             Log::Write(Log::Level::Info, "Press any key to shutdown...");
             (void)getchar();
-            quitKeyPressed = true;
+            //quitKeyPressed = true;
         }};
         exitPollingThread.detach();
 
@@ -286,7 +286,6 @@ int main(int argc, char* argv[]) {
                     // Throttle loop since xrWaitFrame won't be called.
                     std::this_thread::sleep_for(std::chrono::milliseconds(250));
                 }
-                quitKeyPressed = false;
             }
 
         } while (!quitKeyPressed && requestRestart);
