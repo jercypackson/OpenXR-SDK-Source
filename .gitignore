@@ -53,3 +53,11 @@ local.properties
 !.reuse
 !.*.license
 !.azure-pipelines/nuget/NugetTemplate/build
+
+# Build
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+cmake_uninstall.cmake
+src/loader/*.cmake
+

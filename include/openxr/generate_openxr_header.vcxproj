@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CDAF68B4-2F6D-34A4-9F60-19644AD6B2DF}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>generate_openxr_header</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\556c488fc2a6f050a58bb35258c4387b\openxr.h.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/data/repos/OpenXR-SDK-Source/include/openxr/openxr.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Python39\python.exe C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/scripts/genxr.py -registry C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/registry/xr.xml -o C:/data/repos/OpenXR-SDK-Source/include/openxr openxr.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\specification\scripts\genxr.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\cgenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\creflectiongenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\generator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\reg.py;C:\data\repos\OpenXR-SDK-Source\specification\registry\xr.xml;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/data/repos/OpenXR-SDK-Source/include/openxr/openxr.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Python39\python.exe C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/scripts/genxr.py -registry C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/registry/xr.xml -o C:/data/repos/OpenXR-SDK-Source/include/openxr openxr.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\specification\scripts\genxr.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\cgenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\creflectiongenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\generator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\reg.py;C:\data\repos\OpenXR-SDK-Source\specification\registry\xr.xml;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\556c488fc2a6f050a58bb35258c4387b\openxr_platform.h.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/data/repos/OpenXR-SDK-Source/include/openxr/openxr_platform.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Python39\python.exe C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/scripts/genxr.py -registry C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/registry/xr.xml -o C:/data/repos/OpenXR-SDK-Source/include/openxr openxr_platform.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\specification\scripts\genxr.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\cgenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\creflectiongenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\generator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\reg.py;C:\data\repos\OpenXR-SDK-Source\specification\registry\xr.xml;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_platform.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/data/repos/OpenXR-SDK-Source/include/openxr/openxr_platform.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Python39\python.exe C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/scripts/genxr.py -registry C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/registry/xr.xml -o C:/data/repos/OpenXR-SDK-Source/include/openxr openxr_platform.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\specification\scripts\genxr.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\cgenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\creflectiongenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\generator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\reg.py;C:\data\repos\OpenXR-SDK-Source\specification\registry\xr.xml;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_platform.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\556c488fc2a6f050a58bb35258c4387b\openxr_reflection.h.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/data/repos/OpenXR-SDK-Source/include/openxr/openxr_reflection.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Python39\python.exe C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/scripts/genxr.py -registry C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/registry/xr.xml -o C:/data/repos/OpenXR-SDK-Source/include/openxr openxr_reflection.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\specification\scripts\genxr.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\cgenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\creflectiongenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\generator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\reg.py;C:\data\repos\OpenXR-SDK-Source\specification\registry\xr.xml;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_reflection.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/data/repos/OpenXR-SDK-Source/include/openxr/openxr_reflection.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Python39\python.exe C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/scripts/genxr.py -registry C:/data/repos/OpenXR-SDK-Source/include/openxr/../../specification/registry/xr.xml -o C:/data/repos/OpenXR-SDK-Source/include/openxr openxr_reflection.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\specification\scripts\genxr.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\cgenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\creflectiongenerator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\generator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\reg.py;C:\data\repos\OpenXR-SDK-Source\specification\registry\xr.xml;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_reflection.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\5ba8bc1b53e750e052b33188375a4f3b\generate_openxr_header.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr.h;C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_platform.h;C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_reflection.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\CMakeFiles\generate_openxr_header</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr.h;C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_platform.h;C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_reflection.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\CMakeFiles\generate_openxr_header</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\include\openxr\CMakeLists.txt">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/data/repos/OpenXR-SDK-Source/include/openxr/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/OpenXR-SDK-Source -BC:/data/repos/OpenXR-SDK-Source --check-stamp-file C:/data/repos/OpenXR-SDK-Source/include/openxr/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_platform_defines.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/data/repos/OpenXR-SDK-Source/include/openxr/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/OpenXR-SDK-Source -BC:/data/repos/OpenXR-SDK-Source --check-stamp-file C:/data/repos/OpenXR-SDK-Source/include/openxr/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_platform_defines.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\include\openxr\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <XML Include="C:\data\repos\OpenXR-SDK-Source\specification\registry\xr.xml">
+    </XML>
+    <None Include="C:\data\repos\OpenXR-SDK-Source\include\openxr\CMakeFiles\generate_openxr_header">
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\ZERO_CHECK.vcxproj">
+      <Project>{97EF301E-79D1-3DB0-8AAA-3404247F6741}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{97EF301E-79D1-3DB0-8AAA-3404247F6741}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ZERO_CHECK</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\89f63c34cc81fa6fd4602a5474b59498\generate.stamp.rule">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/OpenXR-SDK-Source -BC:/data/repos/OpenXR-SDK-Source --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/data/repos/OpenXR-SDK-Source/OPENXR.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPythonInterp.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindVulkan.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\WriteBasicConfigVersionFile.cmake;C:\data\repos\OpenXR-SDK-Source\CMakeFiles\3.19.1\CMakeCCompiler.cmake;C:\data\repos\OpenXR-SDK-Source\CMakeFiles\3.19.1\CMakeCXXCompiler.cmake;C:\data\repos\OpenXR-SDK-Source\CMakeFiles\3.19.1\CMakeRCCompiler.cmake;C:\data\repos\OpenXR-SDK-Source\CMakeFiles\3.19.1\CMakeSystem.cmake;C:\data\repos\OpenXR-SDK-Source\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\include\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\include\openxr\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_platform_defines.h;C:\data\repos\OpenXR-SDK-Source\src\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\api_layers\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\api_layers\api_layer_platform_defines.h;C:\data\repos\OpenXR-SDK-Source\src\cmake\FindJsonCpp.cmake;C:\data\repos\OpenXR-SDK-Source\src\cmake\StdFilesystemFlags.cmake;C:\data\repos\OpenXR-SDK-Source\src\cmake\cmake_uninstall.cmake.in;C:\data\repos\OpenXR-SDK-Source\src\common_config.h.in;C:\data\repos\OpenXR-SDK-Source\src\loader\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\loader\OpenXRConfig.cmake.in;C:\data\repos\OpenXR-SDK-Source\src\tests\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\frag.spv;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\vert.spv;C:\data\repos\OpenXR-SDK-Source\src\tests\list\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_layers\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_runtimes\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\version.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\include\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\include\openxr\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\loader\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\api_layers\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\list\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_layers\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_runtimes\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/OpenXR-SDK-Source -BC:/data/repos/OpenXR-SDK-Source --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/data/repos/OpenXR-SDK-Source/OPENXR.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPythonInterp.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindVulkan.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\WriteBasicConfigVersionFile.cmake;C:\data\repos\OpenXR-SDK-Source\CMakeFiles\3.19.1\CMakeCCompiler.cmake;C:\data\repos\OpenXR-SDK-Source\CMakeFiles\3.19.1\CMakeCXXCompiler.cmake;C:\data\repos\OpenXR-SDK-Source\CMakeFiles\3.19.1\CMakeRCCompiler.cmake;C:\data\repos\OpenXR-SDK-Source\CMakeFiles\3.19.1\CMakeSystem.cmake;C:\data\repos\OpenXR-SDK-Source\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\include\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\include\openxr\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\include\openxr\openxr_platform_defines.h;C:\data\repos\OpenXR-SDK-Source\src\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\api_layers\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\api_layers\api_layer_platform_defines.h;C:\data\repos\OpenXR-SDK-Source\src\cmake\FindJsonCpp.cmake;C:\data\repos\OpenXR-SDK-Source\src\cmake\StdFilesystemFlags.cmake;C:\data\repos\OpenXR-SDK-Source\src\cmake\cmake_uninstall.cmake.in;C:\data\repos\OpenXR-SDK-Source\src\common_config.h.in;C:\data\repos\OpenXR-SDK-Source\src\loader\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\loader\OpenXRConfig.cmake.in;C:\data\repos\OpenXR-SDK-Source\src\tests\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\frag.spv;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\vert.spv;C:\data\repos\OpenXR-SDK-Source\src\tests\list\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_layers\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_runtimes\CMakeLists.txt;C:\data\repos\OpenXR-SDK-Source\src\version.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\include\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\include\openxr\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\loader\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\api_layers\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\list\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_layers\CMakeFiles\generate.stamp;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_runtimes\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

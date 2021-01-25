@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{39EFBDC8-A41A-306D-B70B-9C43D2CC9F8F}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>loader_test</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">loader_test.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">loader_test</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">loader_test.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">loader_test</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\loader\Debug\openxr_loader.lib;..\..\Debug\openxr-gfxwrapper.lib;d3d11.lib;advapi32.lib;pathcch.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/data/repos/OpenXR-SDK-Source/src/tests/loader_test/Debug/loader_test.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/data/repos/OpenXR-SDK-Source/src/tests/loader_test/Debug/loader_test.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\loader\Release\openxr_loader.lib;..\..\Release\openxr-gfxwrapper.lib;d3d11.lib;advapi32.lib;pathcch.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/data/repos/OpenXR-SDK-Source/src/tests/loader_test/Release/loader_test.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/data/repos/OpenXR-SDK-Source/src/tests/loader_test/Release/loader_test.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\CMakeLists.txt">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/data/repos/OpenXR-SDK-Source/src/tests/loader_test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/OpenXR-SDK-Source -BC:/data/repos/OpenXR-SDK-Source --check-stamp-file C:/data/repos/OpenXR-SDK-Source/src/tests/loader_test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/data/repos/OpenXR-SDK-Source/src/tests/loader_test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/OpenXR-SDK-Source -BC:/data/repos/OpenXR-SDK-Source --check-stamp-file C:/data/repos/OpenXR-SDK-Source/src/tests/loader_test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\loader_test_utils.cpp" />
+    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\loader_test.cpp" />
+    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\common\filesystem_utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\ZERO_CHECK.vcxproj">
+      <Project>{97EF301E-79D1-3DB0-8AAA-3404247F6741}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_layers\XrApiLayer_test.vcxproj">
+      <Project>{785C843E-F2B7-37C7-9FD0-52EED19970FE}</Project>
+      <Name>XrApiLayer_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\include\openxr\generate_openxr_header.vcxproj">
+      <Project>{CDAF68B4-2F6D-34A4-9F60-19644AD6B2DF}</Project>
+      <Name>generate_openxr_header</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\src\openxr-gfxwrapper.vcxproj">
+      <Project>{8132787B-5CB1-3956-A933-6757F0F84110}</Project>
+      <Name>openxr-gfxwrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\src\loader\openxr_loader.vcxproj">
+      <Project>{3139446B-D6EC-335C-9CD5-60AD6CA4EC4E}</Project>
+      <Name>openxr_loader</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_runtimes\test_runtime.vcxproj">
+      <Project>{E6E9C99C-F900-32DD-B156-2F3103BAA8AF}</Project>
+      <Name>test_runtime</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

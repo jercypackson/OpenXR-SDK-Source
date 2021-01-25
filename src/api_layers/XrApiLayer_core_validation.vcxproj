@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0762D430-1F0E-38EC-BEFD-74E50091607F}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>XrApiLayer_core_validation</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">XrApiLayer_core_validation.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">XrApiLayer_core_validation</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">XrApiLayer_core_validation.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">XrApiLayer_core_validation</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\src\api_layers\..;C:\data\repos\OpenXR-SDK-Source\src\api_layers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR="Debug";XrApiLayer_core_validation_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR=\"Debug\";XrApiLayer_core_validation_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\src\api_layers\..;C:\data\repos\OpenXR-SDK-Source\src\api_layers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\src\api_layers\..;C:\data\repos\OpenXR-SDK-Source\src\api_layers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/data/repos/OpenXR-SDK-Source/src/api_layers/XrApiLayer_core_validation.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/data/repos/OpenXR-SDK-Source/src/api_layers/XrApiLayer_core_validation.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\src\api_layers\..;C:\data\repos\OpenXR-SDK-Source\src\api_layers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR="Release";XrApiLayer_core_validation_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR=\"Release\";XrApiLayer_core_validation_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\src\api_layers\..;C:\data\repos\OpenXR-SDK-Source\src\api_layers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\src\api_layers\..;C:\data\repos\OpenXR-SDK-Source\src\api_layers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/data/repos/OpenXR-SDK-Source/src/api_layers/XrApiLayer_core_validation.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/data/repos/OpenXR-SDK-Source/src/api_layers/XrApiLayer_core_validation.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\fbbf3b2d9cca09eef8aea563ea1621e1\xr_generated_core_validation.hpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating xr_generated_core_validation.hpp using C:/Python39/python.exe on validation_layer_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\data\repos\OpenXR-SDK-Source\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/OpenXR-SDK-Source/specification/scripts;C:/data/repos/OpenXR-SDK-Source/src/scripts; C:/Python39/python.exe C:/data/repos/OpenXR-SDK-Source/src/scripts/src_genxr.py -registry C:/data/repos/OpenXR-SDK-Source/specification/registry/xr.xml xr_generated_core_validation.hpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\specification\registry\xr.xml;C:\data\repos\OpenXR-SDK-Source\specification\scripts\generator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\reg.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\validation_layer_generator.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\src_genxr.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\xr_generated_core_validation.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating xr_generated_core_validation.hpp using C:/Python39/python.exe on validation_layer_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\data\repos\OpenXR-SDK-Source\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/OpenXR-SDK-Source/specification/scripts;C:/data/repos/OpenXR-SDK-Source/src/scripts; C:/Python39/python.exe C:/data/repos/OpenXR-SDK-Source/src/scripts/src_genxr.py -registry C:/data/repos/OpenXR-SDK-Source/specification/registry/xr.xml xr_generated_core_validation.hpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\specification\registry\xr.xml;C:\data\repos\OpenXR-SDK-Source\specification\scripts\generator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\reg.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\validation_layer_generator.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\src_genxr.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\xr_generated_core_validation.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\fbbf3b2d9cca09eef8aea563ea1621e1\xr_generated_core_validation.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating xr_generated_core_validation.cpp using C:/Python39/python.exe on validation_layer_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\data\repos\OpenXR-SDK-Source\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/OpenXR-SDK-Source/specification/scripts;C:/data/repos/OpenXR-SDK-Source/src/scripts; C:/Python39/python.exe C:/data/repos/OpenXR-SDK-Source/src/scripts/src_genxr.py -registry C:/data/repos/OpenXR-SDK-Source/specification/registry/xr.xml xr_generated_core_validation.cpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\specification\registry\xr.xml;C:\data\repos\OpenXR-SDK-Source\specification\scripts\generator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\reg.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\validation_layer_generator.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\src_genxr.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\xr_generated_core_validation.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating xr_generated_core_validation.cpp using C:/Python39/python.exe on validation_layer_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\data\repos\OpenXR-SDK-Source\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/OpenXR-SDK-Source/specification/scripts;C:/data/repos/OpenXR-SDK-Source/src/scripts; C:/Python39/python.exe C:/data/repos/OpenXR-SDK-Source/src/scripts/src_genxr.py -registry C:/data/repos/OpenXR-SDK-Source/specification/registry/xr.xml xr_generated_core_validation.cpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\specification\registry\xr.xml;C:\data\repos\OpenXR-SDK-Source\specification\scripts\generator.py;C:\data\repos\OpenXR-SDK-Source\specification\scripts\reg.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\validation_layer_generator.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\src_genxr.py;C:\data\repos\OpenXR-SDK-Source\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\xr_generated_core_validation.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\fbbf3b2d9cca09eef8aea563ea1621e1\XrApiLayer_core_validation.json.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating API Layer JSON C:/data/repos/OpenXR-SDK-Source/src/api_layers/XrApiLayer_core_validation.json using -f C:/data/repos/OpenXR-SDK-Source/src/api_layers/XrApiLayer_core_validation.json -n LUNARG_core_validation -l $^&lt;TARGET_FILE_NAME:XrApiLayer_core_validation^&gt; -a 1.0 -v 1  -d API Layer to perform validation of api calls and parameters as they occur</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\data\repos\OpenXR-SDK-Source\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/OpenXR-SDK-Source/specification/scripts;C:/data/repos/OpenXR-SDK-Source/src/scripts; C:/Python39/python.exe C:/data/repos/OpenXR-SDK-Source/src/scripts/generate_api_layer_manifest.py -f C:/data/repos/OpenXR-SDK-Source/src/api_layers/XrApiLayer_core_validation.json -n LUNARG_core_validation -l XrApiLayer_core_validation.dll -a 1.0 -v 1 -d "API Layer to perform validation of api calls and parameters as they occur"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\scripts\generate_api_layer_manifest.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\XrApiLayer_core_validation.json</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating API Layer JSON C:/data/repos/OpenXR-SDK-Source/src/api_layers/XrApiLayer_core_validation.json using -f C:/data/repos/OpenXR-SDK-Source/src/api_layers/XrApiLayer_core_validation.json -n LUNARG_core_validation -l $^&lt;TARGET_FILE_NAME:XrApiLayer_core_validation^&gt; -a 1.0 -v 1  -d API Layer to perform validation of api calls and parameters as they occur</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\data\repos\OpenXR-SDK-Source\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/OpenXR-SDK-Source/specification/scripts;C:/data/repos/OpenXR-SDK-Source/src/scripts; C:/Python39/python.exe C:/data/repos/OpenXR-SDK-Source/src/scripts/generate_api_layer_manifest.py -f C:/data/repos/OpenXR-SDK-Source/src/api_layers/XrApiLayer_core_validation.json -n LUNARG_core_validation -l XrApiLayer_core_validation.dll -a 1.0 -v 1 -d "API Layer to perform validation of api calls and parameters as they occur"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\scripts\generate_api_layer_manifest.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\XrApiLayer_core_validation.json</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\src\api_layers\CMakeLists.txt">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/data/repos/OpenXR-SDK-Source/src/api_layers/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/OpenXR-SDK-Source -BC:/data/repos/OpenXR-SDK-Source --check-stamp-file C:/data/repos/OpenXR-SDK-Source/src/api_layers/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\api_layer_platform_defines.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/data/repos/OpenXR-SDK-Source/src/api_layers/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/OpenXR-SDK-Source -BC:/data/repos/OpenXR-SDK-Source --check-stamp-file C:/data/repos/OpenXR-SDK-Source/src/api_layers/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\api_layer_platform_defines.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\api_layers\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\api_layers\core_validation.cpp" />
+    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\common\hex_and_handles.h" />
+    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\common\object_info.cpp" />
+    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\common\object_info.h" />
+    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\api_layers\xr_generated_core_validation.hpp" />
+    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\api_layers\xr_generated_core_validation.cpp" />
+    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\xr_generated_dispatch_table.h" />
+    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\xr_generated_dispatch_table.c" />
+    <None Include="C:\data\repos\OpenXR-SDK-Source\src\api_layers\XrApiLayer_core_validation.json">
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\ZERO_CHECK.vcxproj">
+      <Project>{97EF301E-79D1-3DB0-8AAA-3404247F6741}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\include\openxr\generate_openxr_header.vcxproj">
+      <Project>{CDAF68B4-2F6D-34A4-9F60-19644AD6B2DF}</Project>
+      <Name>generate_openxr_header</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\src\xr_global_generated_files.vcxproj">
+      <Project>{45BE65C4-B9ED-3282-913A-B4BC011B1266}</Project>
+      <Name>xr_global_generated_files</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\cf4fb1533cd13f5d4b2ea0ccb983a3ed\XrApiLayer_test.json.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\fd47d23d28ea65829f04bd17ee3648ee\generated_layer_json_files.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_layers\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_layers\CMakeFiles\generated_layer_json_files" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BF05F9FF-28C0-3DD6-B972-FDAD4B78927F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

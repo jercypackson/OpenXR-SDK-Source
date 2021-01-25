@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\125f317f8c5ce974c0202bc7f9d1054c\copy-core_validation-def-file.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\src\api_layers\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\data\repos\OpenXR-SDK-Source\src\api_layers\CMakeFiles\copy-core_validation-def-file" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BF05F9FF-28C0-3DD6-B972-FDAD4B78927F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
