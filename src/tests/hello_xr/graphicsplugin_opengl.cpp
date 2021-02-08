@@ -412,10 +412,12 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         XrMatrix4x4f view;
         XrMatrix4x4f vp;
 
-        int projIdx = 1;
 
-        float mins[] = {4.3f, 2.0f, 1.0f, 0.1f};
-        float maxs[] = {7.9f, 4.4f, 6.9f, 2.5f};
+        // camera is at w = 3, tesseract at w = [-1;1]
+        float n = 1.9f;
+        float f = 4.1f;
+
+        float k = 1; //FOV 4D
 
         // 0 5 10 15 20
         // 1 6 11 16 21
@@ -423,12 +425,14 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         // 3 8 13 18 23
         // 4 9 14 19 24
 
-        float a = -maxs[projIdx] / (maxs[projIdx] - mins[projIdx]);
-        float b = a * mins[projIdx];
+
+        // taken from glm\ext\matrix_clip_space.inl perspectiveRH_NO(...)
+        float a = -(f + n) / (f - n);
+        float b = -(2 * f * n) / (f - n);
 
         // column major
         float m5x5[] = {
-        /**/
+        /*/
         // orthographic
             2.0f / (maxs[0] - mins[0]), 0.0f, 0.0f, 0.0f, 0.0f,
             0.0f, 2.0f / (maxs[1] - mins[3]), 0.0f, 0.0f, 0.0f,
@@ -437,12 +441,12 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
             -(maxs[0] + mins[0]) / (maxs[0] - mins[0]), -(maxs[1] + mins[3]) / (maxs[1] - mins[3]), -(maxs[2] + mins[4]) / (maxs[2] - mins[4]), -(maxs[3] + mins[3]) / (maxs[3] - mins[3]), 1.0f
         };
         /*/
-        // perspective at y
-            1, 0, 0, 0, 0,
-            0, a, 0, 0, b,
-            0, 0, 1, 0, 0,
-            0, 0, 0, 1, 0,
-            0, -1, 0, 0, 0
+        // perspective at w
+            k, 0, 0, 0, 0,
+            0, k, 0, 0, 0,
+            0, 0, k, 0, 0,
+            0, 0, 0, a, -1,
+            0, 0, 0, b, 0
         };
 
         
@@ -471,7 +475,7 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glUniformMatrix4fv(m_modelViewProjectionUniformLocation, 1, GL_FALSE, reinterpret_cast<const GLfloat*>(&vp));
 
         glUniform1fv(glGetUniformLocation(m_program, "proj5d"), 25, m5x5);
-        glUniform1i(glGetUniformLocation(m_program, "projIdx"), projIdx);
+        //glUniform1i(glGetUniformLocation(m_program, "projIdx"), projIdx);
 
         // Draw the cube.
         // glDrawElements(GL_POINTS, static_cast<GLsizei>(ArraySize(Geometry::c_cubeIndices)), GL_UNSIGNED_SHORT, nullptr);
@@ -488,12 +492,12 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glDrawArrays(GL_LINES, 0, Geometry::tess.size());
 
 
-        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
-        glBindFramebuffer(GL_READ_FRAMEBUFFER, m_swapchainFramebuffer);
-        glBlitFramebuffer(layerView.subImage.imageRect.offset.x, layerView.subImage.imageRect.offset.y,
-                          layerView.subImage.imageRect.extent.width, layerView.subImage.imageRect.extent.height,
-                          0, 0, 640, 480,
-                          GL_COLOR_BUFFER_BIT, GL_LINEAR);
+        //glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+        //glBindFramebuffer(GL_READ_FRAMEBUFFER, m_swapchainFramebuffer);
+        //glBlitFramebuffer(layerView.subImage.imageRect.offset.x, layerView.subImage.imageRect.offset.y,
+        //                  layerView.subImage.imageRect.extent.width, layerView.subImage.imageRect.extent.height,
+        //                  0, 0, 640, 480,
+        //                  GL_COLOR_BUFFER_BIT, GL_LINEAR);
 
         glBindVertexArray(0);
         glUseProgram(0);

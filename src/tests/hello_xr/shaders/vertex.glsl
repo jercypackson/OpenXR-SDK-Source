@@ -31,6 +31,20 @@ float dot(float a0, float a1, float a2, float a3, float a4, float b0, float b1, 
     return result;
 }
 
+float[5] mult(float mat55[25], float vec5[5]) {
+
+    float ret[5];
+
+    for (int i = 0; i < 5; i++) {
+        ret[i] = dot(
+            mat55[0 + i], mat55[5 + i], mat55[10 + i], mat55[15 + i], mat55[20 + i], 
+            vec5[0],      vec5[1],      vec5[2],       vec5[3],       vec5[4]
+        );
+    }
+
+    return ret;
+}
+
 void main() {
 
     /*
@@ -41,16 +55,47 @@ void main() {
     4 9 14 19 24
     */
 
-    float projected[5];
-    
-    for (int i = 0; i < 5; i++) {
-        projected[i] = dot(
-            proj5d[0 + i], proj5d[5 + i], proj5d[10 + i], proj5d[15 + i], proj5d[20 + i], 
-            VertexPos.x, VertexPos.y, VertexPos.z, VertexPos.w, 1.0
-        );
-    }
+    float view4d[25];
 
-    vec3 pos = vec3(projected[0], projected[2], projected[3]) / projected[4];
+    view4d[0] = 1;
+    view4d[1] = 0;
+    view4d[2] = 0;
+    view4d[3] = 0;
+    view4d[4] = 0;
+
+    view4d[5] = 0;
+    view4d[6] = 1;
+    view4d[7] = 0;
+    view4d[8] = 0;
+    view4d[9] = 0;
+
+    view4d[10] = 0;
+    view4d[11] = 0;
+    view4d[12] = 1;
+    view4d[13] = 0;
+    view4d[14] = 0;
+
+    view4d[15] = 0;
+    view4d[16] = 0;
+    view4d[17] = 0;
+    view4d[18] = -1;
+    view4d[19] = 0;
+
+    view4d[20] = 0;
+    view4d[21] = 0;
+    view4d[22] = 0;
+    view4d[23] = 3;
+    view4d[24] = 1;
+
+
+
+
+    float[] view = mult(view4d, float[5](VertexPos.x, VertexPos.y, VertexPos.z, VertexPos.w, 1.0));
+    float[] projected = mult(proj5d, view);
+
+
+    vec3 pos = vec3(projected[0], projected[1], projected[2]) / projected[4];
+    //vec3 pos = VertexPos.xyz;
     gl_Position = ModelViewProjection * vec4(pos, 1.0);
     PSVertexColor = VertexColor;
 }
