@@ -63,7 +63,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -208,6 +208,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\pch.h" />
     <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\platformdata.h" />
     <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\platformplugin.h" />
+    <ClInclude Include="Matrix_lib.h" />
     <None Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\frag.glsl">
     </None>
     <None Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\vert.glsl">

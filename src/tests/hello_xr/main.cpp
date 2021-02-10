@@ -10,6 +10,9 @@
 #include "graphicsplugin.h"
 #include "openxr_program.h"
 
+
+#include <conio.h>
+
 namespace {
 
 #ifdef XR_USE_PLATFORM_ANDROID
@@ -249,10 +252,38 @@ int main(int argc, char* argv[]) {
 
         // Spawn a thread to wait for a keypress
         static bool quitKeyPressed = false;
-        auto exitPollingThread = std::thread{[] {
-            Log::Write(Log::Level::Info, "Press any key to shutdown...");
-            (void)getchar();
-            //quitKeyPressed = true;
+        auto exitPollingThread = std::thread{[&] {
+            Log::Write(Log::Level::Info, "Press x to shutdown...");
+            while (true) {
+                int ch = _getch();
+                switch (ch) {
+                    case 'x':
+                        quitKeyPressed = true;
+                        return;
+                    case 'a':
+                        options->XWRot++;
+                        //std::cout << "XWRot: " << options->XWRot << std::endl;
+                        break;
+                    case 'd':
+                        options->XWRot--;
+                        //std::cout << "XWRot: " << options->XWRot << std::endl;
+                        break;
+                    case 'q':
+                        options->YWRot++;
+                        break;
+                    case 'e':
+                        options->YWRot--;
+                        break;
+                    case 'w':
+                        options->ZWRot++;
+                        break;
+                    case 's':
+                        options->ZWRot--;
+                        break;
+                    default:
+                        std::cout << ch;
+                }
+            }
         }};
         exitPollingThread.detach();
 

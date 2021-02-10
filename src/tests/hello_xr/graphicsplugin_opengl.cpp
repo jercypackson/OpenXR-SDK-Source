@@ -12,11 +12,14 @@
 #include "geometry.h"
 #include "data.h"
 #include "graphicsplugin.h"
+#include "Matrix_lib.h"
+#include "options.h"
 
 #ifdef XR_USE_GRAPHICS_API_OPENGL
 
 #include <common/gfxwrapper_opengl.h>
 #include <common/xr_linear.h>
+#include <algorithm>
 
 namespace {
 constexpr float DarkSlateGray[] = {0.184313729f, 0.309803933f, 0.309803933f, 1.0f};
@@ -49,7 +52,8 @@ constexpr float DarkSlateGray[] = {0.184313729f, 0.309803933f, 0.309803933f, 1.0
 //    )_";
 
 struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
-    OpenGLGraphicsPlugin(const std::shared_ptr<Options>& /*unused*/, const std::shared_ptr<IPlatformPlugin> /*unused*/&){};
+    OpenGLGraphicsPlugin(const std::shared_ptr<Options>& opt, const std::shared_ptr<IPlatformPlugin> /*unused*/&) :
+        options(opt) {}
 
     OpenGLGraphicsPlugin(const OpenGLGraphicsPlugin&) = delete;
     OpenGLGraphicsPlugin& operator=(const OpenGLGraphicsPlugin&) = delete;
@@ -413,11 +417,6 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         XrMatrix4x4f vp;
 
 
-        // camera is at w = 3, tesseract at w = [-1;1]
-        float n = 1.9f;
-        float f = 4.1f;
-
-        float k = 1; //FOV 4D
 
         // 0 5 10 15 20
         // 1 6 11 16 21
@@ -425,6 +424,9 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         // 3 8 13 18 23
         // 4 9 14 19 24
 
+        // camera is at w = 3, tesseract at w = [-1;1]
+        float n = 1.9f;
+        float f = 4.1f;
 
         // taken from glm\ext\matrix_clip_space.inl perspectiveRH_NO(...)
         float a = -(f + n) / (f - n);
@@ -442,17 +444,16 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         };
         /*/
         // perspective at w
-            k, 0, 0, 0, 0,
-            0, k, 0, 0, 0,
-            0, 0, k, 0, 0,
-            0, 0, 0, a, -1,
+            1, 0, 0, 0, 0,
+            0, 1, 0, 0, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 0, a, 1,
             0, 0, 0, b, 0
         };
 
         
         /**/
 
-        //todo tesseract
 
         auto pos = pose.position;
         //pos.z = 6;
@@ -476,6 +477,17 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
 
         glUniform1fv(glGetUniformLocation(m_program, "proj5d"), 25, m5x5);
         //glUniform1i(glGetUniformLocation(m_program, "projIdx"), projIdx);
+
+        options->XWRot = std::clamp(options->XWRot, -180.f, 180.f);
+        options->YWRot = std::clamp(options->YWRot, -180.f, 180.f);
+        options->ZWRot = std::clamp(options->ZWRot, -180.f, 180.f);
+
+        float speeee = 0.0028f * 8;
+        glUniform1fv(glGetUniformLocation(m_program, "XWRot"), 25, Matrix_lib::getXWRotationMatrix(options->XWRot * speeee).data());
+        glUniform1fv(glGetUniformLocation(m_program, "YWRot"), 25, Matrix_lib::getYWRotationMatrix(options->YWRot * speeee).data());
+        glUniform1fv(glGetUniformLocation(m_program, "ZWRot"), 25, Matrix_lib::getZWRotationMatrix(options->ZWRot * speeee).data());
+
+
 
         // Draw the cube.
         // glDrawElements(GL_POINTS, static_cast<GLsizei>(ArraySize(Geometry::c_cubeIndices)), GL_UNSIGNED_SHORT, nullptr);
@@ -535,6 +547,9 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
 
     // Map color buffer to associated depth buffer. This map is populated on demand.
     std::map<uint32_t, uint32_t> m_colorToDepthMap;
+
+    const std::shared_ptr<Options>& options;
+
 };
 }  // namespace
 

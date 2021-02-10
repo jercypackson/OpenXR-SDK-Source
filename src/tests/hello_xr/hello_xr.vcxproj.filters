@@ -87,6 +87,9 @@
     <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\platformplugin.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Matrix_lib.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\CMakeLists.txt" />

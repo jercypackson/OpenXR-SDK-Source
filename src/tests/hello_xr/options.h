@@ -14,4 +14,9 @@ struct Options {
     std::string EnvironmentBlendMode{"Opaque"};
 
     std::string AppSpace{"Local"};
+
+    // rotation
+    float XWRot = 0;
+    float YWRot = 0;
+    float ZWRot = 0;
 };

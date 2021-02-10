@@ -7,15 +7,11 @@ out vec3 PSVertexColor;
 
 uniform mat4 ModelViewProjection;
 uniform float proj5d[25];
-uniform int projIdx = 3; //which coordinate to project on [0;3]
 
-struct vec5 {
-    float a;
-    float b;
-    float c;
-    float d;
-    float e;
-};
+// rotation
+uniform float XWRot[25];
+uniform float YWRot[25];
+uniform float ZWRot[25];
 
 //float dot(float a0, float a1, float a2, float a3, float a4, float b[5]) {
 //    return dot(a0, a1, a2, a3, a4, b[0], b[1], b[2], b[3], b[4]);
@@ -55,42 +51,22 @@ void main() {
     4 9 14 19 24
     */
 
-    float view4d[25];
-
-    view4d[0] = 1;
-    view4d[1] = 0;
-    view4d[2] = 0;
-    view4d[3] = 0;
-    view4d[4] = 0;
-
-    view4d[5] = 0;
-    view4d[6] = 1;
-    view4d[7] = 0;
-    view4d[8] = 0;
-    view4d[9] = 0;
-
-    view4d[10] = 0;
-    view4d[11] = 0;
-    view4d[12] = 1;
-    view4d[13] = 0;
-    view4d[14] = 0;
-
-    view4d[15] = 0;
-    view4d[16] = 0;
-    view4d[17] = 0;
-    view4d[18] = -1;
-    view4d[19] = 0;
-
-    view4d[20] = 0;
-    view4d[21] = 0;
-    view4d[22] = 0;
-    view4d[23] = 3;
-    view4d[24] = 1;
+    float view4d[25] = float[25](
+        1, 0, 0, 0, 0,
+        0, 1, 0, 0, 0,
+        0, 0, 1, 0, 0,
+        0, 0, 0, -1, 0,
+        0, 0, 0, 3, 1);
 
 
+    float[] v5 = float[5](VertexPos.x, VertexPos.y, VertexPos.z, VertexPos.w, 1.0);
 
 
-    float[] view = mult(view4d, float[5](VertexPos.x, VertexPos.y, VertexPos.z, VertexPos.w, 1.0));
+    float[] xw = mult(XWRot, v5);
+    float[] yw = mult(YWRot, xw);
+    float[] zw = mult(ZWRot, yw);
+
+    float[] view = mult(view4d, zw);
     float[] projected = mult(proj5d, view);
 
 

@@ -852,19 +852,19 @@ struct OpenXrProgram : IOpenXrProgram {
             XrActionStateFloat grabValue{XR_TYPE_ACTION_STATE_FLOAT};
             CHECK_XRCMD(xrGetActionStateFloat(m_session, &getInfo, &grabValue));
             if (grabValue.isActive == XR_TRUE) {
-                // Scale the rendered hand by 1.0f (open) to 0.5f (fully squeezed).
-                m_input.handScale[hand] = 1.0f - 0.5f * grabValue.currentState;
-                if (grabValue.currentState > 0.9f) {
-                    XrHapticVibration vibration{XR_TYPE_HAPTIC_VIBRATION};
-                    vibration.amplitude = 0.5;
-                    vibration.duration = XR_MIN_HAPTIC_DURATION;
-                    vibration.frequency = XR_FREQUENCY_UNSPECIFIED;
+                // Pass over grab state
+                m_input.handScale[hand] = /*1.0f - 0.5f * */grabValue.currentState;
+                //if (grabValue.currentState > 0.9f) {
+                //    XrHapticVibration vibration{XR_TYPE_HAPTIC_VIBRATION};
+                //    vibration.amplitude = 0.5;
+                //    vibration.duration = XR_MIN_HAPTIC_DURATION;
+                //    vibration.frequency = XR_FREQUENCY_UNSPECIFIED;
 
-                    XrHapticActionInfo hapticActionInfo{XR_TYPE_HAPTIC_ACTION_INFO};
-                    hapticActionInfo.action = m_input.vibrateAction;
-                    hapticActionInfo.subactionPath = m_input.handSubactionPath[hand];
-                    CHECK_XRCMD(xrApplyHapticFeedback(m_session, &hapticActionInfo, (XrHapticBaseHeader*)&vibration));
-                }
+                //    XrHapticActionInfo hapticActionInfo{XR_TYPE_HAPTIC_ACTION_INFO};
+                //    hapticActionInfo.action = m_input.vibrateAction;
+                //    hapticActionInfo.subactionPath = m_input.handSubactionPath[hand];
+                //    CHECK_XRCMD(xrApplyHapticFeedback(m_session, &hapticActionInfo, (XrHapticBaseHeader*)&vibration));
+                //}
             }
 
             getInfo.action = m_input.poseAction;
@@ -909,6 +909,9 @@ struct OpenXrProgram : IOpenXrProgram {
         //CHECK_XRCMD
         (xrEndFrame(m_session, &frameEndInfo));
     }
+
+    XrVector3f prevPos;
+    bool posValid = false;
 
     bool RenderLayer(XrTime predictedDisplayTime, std::vector<XrCompositionLayerProjectionView>& projectionLayerViews,
                      XrCompositionLayerProjection& layer) {
@@ -956,14 +959,40 @@ struct OpenXrProgram : IOpenXrProgram {
         // Render a 10cm cube scaled by grabAction for each hand. Note renderHand will only be
         // true when the application has focus.
         for (auto hand : {Side::LEFT, Side::RIGHT}) {
+
+            if (m_input.handScale[hand] < 0.9f) {
+                posValid = false;
+                continue;
+            }
+
             XrSpaceLocation spaceLocation{XR_TYPE_SPACE_LOCATION};
             res = xrLocateSpace(m_input.handSpace[hand], m_appSpace, predictedDisplayTime, &spaceLocation);
             CHECK_XRRESULT(res, "xrLocateSpace");
             if (XR_UNQUALIFIED_SUCCESS(res)) {
                 if ((spaceLocation.locationFlags & XR_SPACE_LOCATION_POSITION_VALID_BIT) != 0 &&
                     (spaceLocation.locationFlags & XR_SPACE_LOCATION_ORIENTATION_VALID_BIT) != 0) {
-                    float scale = 0.1f * m_input.handScale[hand];
-                    cubes.push_back(Cube{spaceLocation.pose, {scale, scale, scale}});
+
+                    if (posValid) {
+                        
+                        XrVector3f diff;
+                        XrVector3f_Sub(&diff, &prevPos, &spaceLocation.pose.position);
+
+                        //std::cout << diff.x << " " << diff.y << " " << diff.z << " " << std::endl;
+
+                        float spee = 100.f;
+
+                        m_options->XWRot += diff.x * spee;
+                        m_options->YWRot += diff.y * spee;
+                        m_options->ZWRot += diff.z * spee;
+
+                    }
+
+                    prevPos = spaceLocation.pose.position;
+                    posValid = true;
+
+                    //float scale = 0.1f * m_input.handScale[hand];
+                    //cubes.push_back(Cube{spaceLocation.pose, {scale, scale, scale}});
+
                 }
             } else {
                 // Tracking loss is expected when the hand is not active so only log a message
