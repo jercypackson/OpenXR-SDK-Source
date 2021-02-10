@@ -78,3 +78,5 @@ src/api_layers/*.hpp
 *.FileListAbsolute.txt
 src/tests/**/*.exe
 src/**/*.json
+
+data/mnist_784.csv
