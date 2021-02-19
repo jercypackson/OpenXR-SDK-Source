@@ -3,7 +3,11 @@
 in vec4 VertexPos;
 in vec3 VertexColor;
 
-out vec3 PSVertexColor;
+
+out VertexData {
+    vec3 PSVertexColor;
+    flat int vertID;
+} vert;
 
 uniform mat4 ModelViewProjection;
 uniform float proj5d[25];
@@ -71,7 +75,10 @@ void main() {
 
 
     vec3 pos = vec3(projected[0], projected[1], projected[2]) / projected[4];
+
+    pos += vec3(0, 1, 0); //move off the floor
     //vec3 pos = VertexPos.xyz;
     gl_Position = ModelViewProjection * vec4(pos, 1.0);
-    PSVertexColor = VertexColor;
+    vert.PSVertexColor = VertexColor;
+    vert.vertID = gl_VertexID;
 }

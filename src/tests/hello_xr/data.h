@@ -17,25 +17,33 @@ constexpr XrVector3f virginica{0, 0, 1};
 constexpr XrVector3f color{0, 0.5, 1};
 
 
-constexpr XrVector3f c0{0, 0, 0};
-constexpr XrVector3f c1{0.5,0,0};
-constexpr XrVector3f c2{1,0,0};
-constexpr XrVector3f c3{1,1,0};
-constexpr XrVector3f c4{0,1,0};
-constexpr XrVector3f c5{0,0.5,0};
-constexpr XrVector3f c6{0,1,1};
-constexpr XrVector3f c7{0,0,1};
-constexpr XrVector3f c8{1,0,1};
-constexpr XrVector3f c9{1, 1, 1};
+constexpr XrVector3f c0{0, 0, 0}    ;
+constexpr XrVector3f c1{0.5,0,0}    ;
+constexpr XrVector3f c2{1,0,0}      ;
+constexpr XrVector3f c3{1,1,0}      ;
+constexpr XrVector3f c4{0,1,0}      ;
+constexpr XrVector3f c5{0,0.5,0}    ;
+constexpr XrVector3f c6{0,1,1}      ;
+constexpr XrVector3f c7{0,0,1}      ;
+constexpr XrVector3f c8{1,0,1}      ;
+constexpr XrVector3f c9{1, 1, 1}    ;
 
-
-
-
-
+std::map<int, XrVector3f> colors {
+    {0, XrVector3f{0.2670, 0.0049, 0.3294}},
+    {1, XrVector3f{0.2812, 0.1575, 0.4704}},
+    {2, XrVector3f{0.2437, 0.2906, 0.5381}},
+    {3, XrVector3f{0.1906, 0.4071, 0.5561}},
+    {4, XrVector3f{0.1471, 0.5130, 0.5570}},
+    {5, XrVector3f{0.1196, 0.6173, 0.5368}},
+    {6, XrVector3f{0.2080, 0.7187, 0.4729}},
+    {7, XrVector3f{0.4249, 0.8067, 0.3501}},
+    {8, XrVector3f{0.7064, 0.8682, 0.1715}},
+    {9, XrVector3f{0.9932, 0.9062, 0.1439}},
+};
 
 constexpr XrVector3f grey{0.5f, 0.5f, 0.5f};
 
-
+std::vector<Iris> data = {};
 
 std::vector<Iris> data2 = {
 {-0.5556f,	0.2500f,	-0.8644f,	-0.9167f,	setosa},
@@ -192,7 +200,7 @@ std::vector<Iris> data2 = {
 
 };
 
-std::vector<Iris> data = {
+std::vector<Iris> data3 = {
     {-0.685078549, -0.859480071, 0.07360402, -0.74757316, c1},
     {-0.100519019, -0.393313927, 0.987627273, 0.158651688, c2},
     {-0.604932578, 0.376774083, 0.516049807, -0.388910024, c7},
@@ -2201,12 +2209,13 @@ float b[] = {1, 1, 1, 1};
 float c[] = {0, 0, 0, 0};
 
 #define PNT(p1,p2,p3,p4) {{p1[0], p2[1], p3[2], p4[3]}, grey}
+#define PNTW(p1,p2,p3,p4) {{p1[0], p2[1], p3[2], p4[3]}, {1,1,1}}
 
 #define PNTC(p1,p2,p3,p4, c) {{p1[0], p2[1], p3[2], p4[3]}, XrVector3f{p1[0], p2[1], p3[2]}}
 
 
 std::vector<Iris> tess = {
-    PNTC(c,c,c,b),	PNTC(c,c,c,c),
+    PNTW(c, c, c, b), PNTC(c, c, c, c),
     PNTC(c,c,b,c),	PNTC(c,c,c,c),
     PNTC(c,b,c,c),	PNTC(c,c,c,c),
     PNTC(b,c,c,c),	PNTC(c,c,c,c),

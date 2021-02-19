@@ -15,11 +15,15 @@
 #include "Matrix_lib.h"
 #include "options.h"
 
+#include <algorithm>
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+
 #ifdef XR_USE_GRAPHICS_API_OPENGL
 
 #include <common/gfxwrapper_opengl.h>
 #include <common/xr_linear.h>
-#include <algorithm>
+
 
 namespace {
 constexpr float DarkSlateGray[] = {0.184313729f, 0.309803933f, 0.309803933f, 1.0f};
@@ -177,16 +181,42 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         return code;
     }
 
+    void loadData() {
+        std::ifstream input("data/embedding.csv");
+        std::string line;
+        getline(input, line);  // discard headers
+
+        while (getline(input, line)) {
+            std::vector<float> vec;
+
+            // https://stackoverflow.com/a/14267455
+            std::string delim = ",";
+            auto start = 0U;
+            auto end = line.find(delim);
+            while (end != std::string::npos) {
+                vec.push_back(std::stof(line.substr(start, end - start)));
+                start = end + delim.length();
+                end = line.find(delim, start);
+            }
+            int c = std::stoi(line.substr(start, end));
+
+            Geometry::data.push_back({{vec[0], vec[1], vec[2], vec[3]}, Geometry::colors.at(c)});
+
+            if (Geometry::data.size() > 5000) {
+                return;
+            }
+        }
+    }
+
     void InitializeResources() {
         glGenFramebuffers(1, &m_swapchainFramebuffer);
-        
+
         GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
         auto vsString = readFile("shaders/vertex.glsl");
         auto vsCharArr = vsString.c_str();
         glShaderSource(vertexShader, 1, &vsCharArr, nullptr);
         glCompileShader(vertexShader);
         CheckShader(vertexShader);
-
 
         GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
         auto fsString = readFile("shaders/fragment.glsl");
@@ -209,32 +239,32 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         m_vertexAttribCoords = glGetAttribLocation(m_program, "VertexPos");
         m_vertexAttribColor = glGetAttribLocation(m_program, "VertexColor");
 
+        loadData();
+
         glGenBuffers(1, &m_pntBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, m_pntBuffer);
         glBufferData(GL_ARRAY_BUFFER, sizeof(Geometry::data) * Geometry::data.size(), Geometry::data.data(), GL_STATIC_DRAW);
 
-        //auto ds = sizeof(Geometry::data);
-        //auto sdf = &Geometry::data;
-    	
-        //glGenBuffers(1, &m_cubeIndexBuffer);
-        //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
-        //glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Geometry::c_cubeIndices), Geometry::c_cubeIndices, GL_STATIC_DRAW);
+        // auto ds = sizeof(Geometry::data);
+        // auto sdf = &Geometry::data;
+
+        // glGenBuffers(1, &m_cubeIndexBuffer);
+        // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
+        // glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Geometry::c_cubeIndices), Geometry::c_cubeIndices, GL_STATIC_DRAW);
 
         glGenVertexArrays(1, &m_vao_pnt);
         glBindVertexArray(m_vao_pnt);
         glEnableVertexAttribArray(m_vertexAttribCoords);
         glEnableVertexAttribArray(m_vertexAttribColor);
         glBindBuffer(GL_ARRAY_BUFFER, m_pntBuffer);
-        //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
+        // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
         glVertexAttribPointer(m_vertexAttribCoords, 4, GL_FLOAT, GL_FALSE, sizeof(Geometry::Iris), nullptr);
         glVertexAttribPointer(m_vertexAttribColor, 3, GL_FLOAT, GL_FALSE, sizeof(Geometry::Iris),
                               reinterpret_cast<const void*>(sizeof(XrVector4f)));
 
-
         glGenBuffers(1, &m_tessBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, m_tessBuffer);
         glBufferData(GL_ARRAY_BUFFER, sizeof(Geometry::tess) * Geometry::tess.size(), Geometry::tess.data(), GL_STATIC_DRAW);
-
 
         glGenVertexArrays(1, &m_vao_tess);
         glBindVertexArray(m_vao_tess);
@@ -246,28 +276,26 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glVertexAttribPointer(m_vertexAttribColor, 3, GL_FLOAT, GL_FALSE, sizeof(Geometry::Iris),
                               reinterpret_cast<const void*>(sizeof(XrVector4f)));
 
-        //auto y = [](char p, int i) { return p == '0' ? Geometry::a[i] : p == '1' ? Geometry::b[i] : -1; };
+        // auto y = [](char p, int i) { return p == '0' ? Geometry::a[i] : p == '1' ? Geometry::b[i] : -1; };
 
-
-        //for (int i = 0; i < 16; ++i) {
+        // for (int i = 0; i < 16; ++i) {
 
         //    auto binary = std::bitset<4>(i).to_string(); // to binary
         //    char bin[5];
 
         //    std::cout << binary << std::endl;
-        //	
+        //
 
         //    for (int j = 0; j < 4; ++j) {
         //        strcpy(bin, binary.c_str());
 
         //        Geometry::tess.push_back({{y(bin[0], 0), y(bin[1], 1), y(bin[2], 2), y(bin[3], 3)}, Geometry::grey});
-        //        
+        //
         //        std::string tmp = std::to_string(1 - (bin[j] - '0'));
         //        bin[j] = tmp.c_str()[0];    // I HATE CPP
 
         //        Geometry::tess.push_back({{y(bin[0], 0), y(bin[1], 1), y(bin[2], 2), y(bin[3], 3)}, Geometry::grey});
         //    }
-
 
         //}
 
@@ -276,6 +304,28 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         unsigned long decimal = std::bitset<8>(binary).to_ulong();
         std::cout << decimal << "\n";*/
 
+
+
+        int width, height, nrChannels;
+        unsigned char* data = stbi_load("data/atlas.png", &width, &height, &nrChannels, 0);
+        if (!data) {
+            std::cout << "Failed to load texture" << std::endl;
+        }
+
+        // load and create a texture
+        glGenTextures(1, &m_texture);
+        glBindTexture(GL_TEXTURE_2D, m_texture);
+
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_R8, width, height, 0, GL_RED, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_BORDER);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+
+        stbi_image_free(data);
     }
 
     void CheckShader(GLuint shader) {
@@ -400,14 +450,13 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glClearColor(DarkSlateGray[0], DarkSlateGray[1], DarkSlateGray[2], DarkSlateGray[3]);
         glClearDepth(1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-        glPointSize(20.f);
+        glPointSize(50.f);
+
 
         // Set shaders and uniform variables.
         glUseProgram(m_program);
 
-        const auto& pose = layerView.pose;
-        auto or = layerView.pose.orientation;
-        or.x = -1.57f;
+
 
 
         XrMatrix4x4f proj;
@@ -425,8 +474,8 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         // 4 9 14 19 24
 
         // camera is at w = 3, tesseract at w = [-1;1]
-        float n = 1.9f;
-        float f = 4.1f;
+        float n = 0.1f;
+        float f = 11.f;
 
         // taken from glm\ext\matrix_clip_space.inl perspectiveRH_NO(...)
         float a = -(f + n) / (f - n);
@@ -447,13 +496,15 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
             1, 0, 0, 0, 0,
             0, 1, 0, 0, 0,
             0, 0, 1, 0, 0,
-            0, 0, 0, a, 1,
+            0, 0, 0, a, 1, //according to math this should be -1, but it's mirrored along the w axis then, so we use 1
             0, 0, 0, b, 0
         };
 
         
         /**/
 
+        const auto& pose = layerView.pose;
+        
 
         auto pos = pose.position;
         //pos.z = 6;
@@ -482,34 +533,51 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         options->YWRot = std::clamp(options->YWRot, -180.f, 180.f);
         options->ZWRot = std::clamp(options->ZWRot, -180.f, 180.f);
 
+        /*
+
+x_1 = cos(phi1)
+x_2 = sin(phi1) cos(phi2)
+x_3 = sin(phi1) sin(phi2) cos(phi3)
+x_4 = sin(phi1) sin(phi2) sin(phi3)
+
+         */
+
+
         float speeee = 0.0028f * 8;
         glUniform1fv(glGetUniformLocation(m_program, "XWRot"), 25, Matrix_lib::getXWRotationMatrix(options->XWRot * speeee).data());
         glUniform1fv(glGetUniformLocation(m_program, "YWRot"), 25, Matrix_lib::getYWRotationMatrix(options->YWRot * speeee).data());
         glUniform1fv(glGetUniformLocation(m_program, "ZWRot"), 25, Matrix_lib::getZWRotationMatrix(options->ZWRot * speeee).data());
 
+        int atlas = 0;
 
 
         // Draw the cube.
         // glDrawElements(GL_POINTS, static_cast<GLsizei>(ArraySize(Geometry::c_cubeIndices)), GL_UNSIGNED_SHORT, nullptr);
 
+        glActiveTexture(GL_TEXTURE0 + atlas);
+        glBindTexture(GL_TEXTURE_2D, m_texture);
+
+        glUniform1i(glGetUniformLocation(m_program, "atlas"), atlas);
 
 
-        // Set cube primitive data.
+        glUniform1i(glGetUniformLocation(m_program, "dodiscard"), 1);
+
         glBindVertexArray(m_vao_pnt);
         glDrawArrays(GL_POINTS, 0, Geometry::data.size());
         //}
 
+        glUniform1i(glGetUniformLocation(m_program, "dodiscard"), 0);
 
         glBindVertexArray(m_vao_tess);
         glDrawArrays(GL_LINES, 0, Geometry::tess.size());
 
 
-        //glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
-        //glBindFramebuffer(GL_READ_FRAMEBUFFER, m_swapchainFramebuffer);
-        //glBlitFramebuffer(layerView.subImage.imageRect.offset.x, layerView.subImage.imageRect.offset.y,
-        //                  layerView.subImage.imageRect.extent.width, layerView.subImage.imageRect.extent.height,
-        //                  0, 0, 640, 480,
-        //                  GL_COLOR_BUFFER_BIT, GL_LINEAR);
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, m_swapchainFramebuffer);
+        glBlitFramebuffer(layerView.subImage.imageRect.offset.x, layerView.subImage.imageRect.offset.y,
+                          layerView.subImage.imageRect.extent.width, layerView.subImage.imageRect.extent.height,
+                          0, 0, 640, 480,
+                          GL_COLOR_BUFFER_BIT, GL_LINEAR);
 
         glBindVertexArray(0);
         glUseProgram(0);
@@ -544,6 +612,8 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
     GLuint m_pntBuffer{0};
     GLuint m_tessBuffer{0};
     GLuint m_cubeIndexBuffer{0};
+    GLuint m_texture{0};
+
 
     // Map color buffer to associated depth buffer. This map is populated on demand.
     std::map<uint32_t, uint32_t> m_colorToDepthMap;

@@ -911,7 +911,6 @@ struct OpenXrProgram : IOpenXrProgram {
     }
 
     XrVector3f prevPos;
-    bool posValid = false;
 
     bool RenderLayer(XrTime predictedDisplayTime, std::vector<XrCompositionLayerProjectionView>& projectionLayerViews,
                      XrCompositionLayerProjection& layer) {
@@ -960,11 +959,6 @@ struct OpenXrProgram : IOpenXrProgram {
         // true when the application has focus.
         for (auto hand : {Side::LEFT, Side::RIGHT}) {
 
-            if (m_input.handScale[hand] < 0.9f) {
-                posValid = false;
-                continue;
-            }
-
             XrSpaceLocation spaceLocation{XR_TYPE_SPACE_LOCATION};
             res = xrLocateSpace(m_input.handSpace[hand], m_appSpace, predictedDisplayTime, &spaceLocation);
             CHECK_XRRESULT(res, "xrLocateSpace");
@@ -972,23 +966,23 @@ struct OpenXrProgram : IOpenXrProgram {
                 if ((spaceLocation.locationFlags & XR_SPACE_LOCATION_POSITION_VALID_BIT) != 0 &&
                     (spaceLocation.locationFlags & XR_SPACE_LOCATION_ORIENTATION_VALID_BIT) != 0) {
 
-                    if (posValid) {
-                        
-                        XrVector3f diff;
-                        XrVector3f_Sub(&diff, &prevPos, &spaceLocation.pose.position);
-
-                        //std::cout << diff.x << " " << diff.y << " " << diff.z << " " << std::endl;
-
-                        float spee = 100.f;
-
-                        m_options->XWRot += diff.x * spee;
-                        m_options->YWRot += diff.y * spee;
-                        m_options->ZWRot += diff.z * spee;
-
+                    if (m_input.handScale[hand] < 0.9f) {
+                        prevPos = spaceLocation.pose.position;
+                        continue;
                     }
 
+                    XrVector3f diff;
+                    XrVector3f_Sub(&diff, &prevPos, &spaceLocation.pose.position);
+
+                    //std::cout << diff.x << " " << diff.y << " " << diff.z << " " << std::endl;
+
+                    float spee = 100.f;
+
+                    m_options->XWRot += diff.x * spee;
+                    m_options->YWRot += diff.y * spee;
+                    m_options->ZWRot += diff.z * spee;
+
                     prevPos = spaceLocation.pose.position;
-                    posValid = true;
 
                     //float scale = 0.1f * m_input.handScale[hand];
                     //cubes.push_back(Cube{spaceLocation.pose, {scale, scale, scale}});

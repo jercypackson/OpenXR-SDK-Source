@@ -258,6 +258,7 @@ int main(int argc, char* argv[]) {
                 int ch = _getch();
                 switch (ch) {
                     case 'x':
+                    case 27:
                         quitKeyPressed = true;
                         return;
                     case 'a':
@@ -279,6 +280,11 @@ int main(int argc, char* argv[]) {
                         break;
                     case 's':
                         options->ZWRot--;
+                        break;
+                    case 'r':
+                        options->XWRot = 0;
+                        options->YWRot = 0;
+                        options->ZWRot = 0;
                         break;
                     default:
                         std::cout << ch;
