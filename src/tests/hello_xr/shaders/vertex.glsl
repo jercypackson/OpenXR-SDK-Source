@@ -17,6 +17,9 @@ uniform float XWRot[25];
 uniform float YWRot[25];
 uniform float ZWRot[25];
 
+uniform float gms_base[25];
+
+
 //float dot(float a0, float a1, float a2, float a3, float a4, float b[5]) {
 //    return dot(a0, a1, a2, a3, a4, b[0], b[1], b[2], b[3], b[4]);
 //}
@@ -66,17 +69,19 @@ void main() {
     float[] v5 = float[5](VertexPos.x, VertexPos.y, VertexPos.z, VertexPos.w, 1.0);
 
 
-    float[] xw = mult(XWRot, v5);
-    float[] yw = mult(YWRot, xw);
-    float[] zw = mult(ZWRot, yw);
+    v5 = mult(ZWRot, v5);
+    v5 = mult(XWRot, v5);
+    v5 = mult(YWRot, v5);
 
-    float[] view = mult(view4d, zw);
+    //float[] r = mult(gms_base, v5);
+
+    float[] view = mult(view4d, v5);
     float[] projected = mult(proj5d, view);
 
 
     vec3 pos = vec3(projected[0], projected[1], projected[2]) / projected[4];
 
-    pos += vec3(0, 1, 0); //move off the floor
+    pos += vec3(0, 0.5, 0); //move off the floor
     //vec3 pos = VertexPos.xyz;
     gl_Position = ModelViewProjection * vec4(pos, 1.0);
     vert.PSVertexColor = VertexColor;

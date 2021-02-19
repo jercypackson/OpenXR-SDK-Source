@@ -529,24 +529,125 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glUniform1fv(glGetUniformLocation(m_program, "proj5d"), 25, m5x5);
         //glUniform1i(glGetUniformLocation(m_program, "projIdx"), projIdx);
 
-        options->XWRot = std::clamp(options->XWRot, -180.f, 180.f);
-        options->YWRot = std::clamp(options->YWRot, -180.f, 180.f);
-        options->ZWRot = std::clamp(options->ZWRot, -180.f, 180.f);
 
-        /*
-
-x_1 = cos(phi1)
-x_2 = sin(phi1) cos(phi2)
-x_3 = sin(phi1) sin(phi2) cos(phi3)
-x_4 = sin(phi1) sin(phi2) sin(phi3)
-
-         */
-
+        /**/
+        options->XWRot = fmod(options->XWRot, 360.f);
+        options->YWRot = fmod(options->YWRot, 360.f);
+        options->ZWRot = fmod(options->ZWRot, 360.f);
 
         float speeee = 0.0028f * 8;
         glUniform1fv(glGetUniformLocation(m_program, "XWRot"), 25, Matrix_lib::getXWRotationMatrix(options->XWRot * speeee).data());
         glUniform1fv(glGetUniformLocation(m_program, "YWRot"), 25, Matrix_lib::getYWRotationMatrix(options->YWRot * speeee).data());
         glUniform1fv(glGetUniformLocation(m_program, "ZWRot"), 25, Matrix_lib::getZWRotationMatrix(options->ZWRot * speeee).data());
+
+
+        /*/
+        
+
+        
+
+        options->XWRot = fmod(options->XWRot, 180.f);
+        options->YWRot = fmod(options->YWRot, 360.f);
+        options->ZWRot = fmod(options->ZWRot, 180.f);
+
+
+        float toRad = 0.0174533;
+
+        auto phi1 = options->XWRot * toRad;
+        auto phi2 = options->YWRot * toRad;
+        auto phi3 = options->ZWRot * toRad;
+        
+        auto sinphi1 = sin(phi1);
+        auto sinphi2 = sin(phi2);
+
+        auto x_1 = cos(phi1);
+        auto x_2 = sinphi1 * cos(phi2);
+        auto x_3 = sinphi1 * sinphi2 * cos(phi3);
+        auto x_4 = sinphi1 * sinphi2 * sin(phi3);
+
+        std::vector<std::array<float, 4>> ai = {
+            {x_1, x_2, x_3, x_4},
+            {0.f, 1.f, 0.f, 0.f},
+            {0.f, 0.f, 1.f, 0.f},
+            {0.f, 0.f, 0.f, 1.f}
+        };
+
+        //https://web.archive.org/web/20150807051016/http://ocw.mit.edu/courses/mathematics/18-335j-introduction-to-numerical-methods-fall-2010/lecture-notes/MIT18_335JF10_lec10a_hand.pdf
+
+        std::vector<std::array<float, 4>> r(4);
+        std::vector<std::array<float, 4>> q;
+
+        auto _pow = [](std::array<float, 4> a, float b)
+        {
+            float tmp = 0;
+            for (float v : a) {
+                tmp += pow(v, b);
+            }
+            return tmp;
+        };
+
+        auto _mul = [](std::array<float, 4> a, float b) {
+            std::array<float, 4> tmp{};
+            for (int i = 0; i < 4; ++i) {
+                tmp[i] = a[i] * b;
+            }
+            return tmp;
+        };
+
+        auto _div = [&_mul](std::array<float, 4> a, float b)
+        {
+            return _mul(a, 1 / b);
+        };
+
+        auto _dot = [](std::array<float, 4> a, std::array<float, 4> b)
+        {
+            float tmp = 0;
+            for (int i = 0; i < 4; ++i) {
+                tmp += a[i] * b[i];
+            }
+            return tmp;
+        };
+
+        auto _sub = [](std::array<float, 4> a, std::array<float, 4> b)
+        {
+            std::array<float, 4> tmp{};
+            for (int i = 0; i < 4; ++i) {
+                tmp[i] = a[i] - b[i];
+            }
+            return tmp;
+        };
+
+        auto v = ai; // deep copy
+
+        for (int i = 0; i < 4; ++i) {
+
+            r[i][i] = sqrt(_pow(v[i], 2));
+
+            q.push_back(_div(v[i], r[i][i]));
+
+            for (int j = i + 1; j < 4; ++j) {
+                r[i][j] = _dot(q[i], v[i]);
+                v[j] = _sub(v[j], _mul(q[i], r[i][j]));
+            }
+        }
+
+
+        int c = 0;
+        std::array<float, 25> gms_base{};
+
+        for (auto && vec : q) {
+            for (auto val : vec) {
+                gms_base[c] = val;
+                c++;
+            }
+            gms_base[c] = 0;
+            c++;
+        }
+        gms_base[24] = 1;
+
+        glUniform1fv(glGetUniformLocation(m_program, "gms_base"), 25, gms_base.data());
+        /**/
+
 
         int atlas = 0;
 

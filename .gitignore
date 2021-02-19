@@ -80,3 +80,5 @@ src/tests/**/*.exe
 src/**/*.json
 
 data/mnist_784.csv
+
+src/tests/hello_xr/data/mnist_784.csv
