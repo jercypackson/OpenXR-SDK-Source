@@ -241,9 +241,6 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
 
         loadData();
 
-        glGenBuffers(1, &m_pntBuffer);
-        glBindBuffer(GL_ARRAY_BUFFER, m_pntBuffer);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(Geometry::data) * Geometry::data.size(), Geometry::data.data(), GL_STATIC_DRAW);
 
         // auto ds = sizeof(Geometry::data);
         // auto sdf = &Geometry::data;
@@ -251,6 +248,32 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         // glGenBuffers(1, &m_cubeIndexBuffer);
         // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
         // glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Geometry::c_cubeIndices), Geometry::c_cubeIndices, GL_STATIC_DRAW);
+
+
+        glGenBuffers(1, &m_cubeVertexBuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, m_cubeVertexBuffer);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Geometry::c_cubeVertices), Geometry::c_cubeVertices, GL_STATIC_DRAW);
+
+        glGenBuffers(1, &m_cubeIndexBuffer);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Geometry::c_cubeIndices), Geometry::c_cubeIndices, GL_STATIC_DRAW);
+
+        glGenVertexArrays(1, &m_vao);
+        glBindVertexArray(m_vao);
+        glEnableVertexAttribArray(m_vertexAttribCoords);
+        glEnableVertexAttribArray(m_vertexAttribColor);
+        glBindBuffer(GL_ARRAY_BUFFER, m_cubeVertexBuffer);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_cubeIndexBuffer);
+        glVertexAttribPointer(m_vertexAttribCoords, 4, GL_FLOAT, GL_FALSE, sizeof(Geometry::Vertex), nullptr);
+        glVertexAttribPointer(m_vertexAttribColor, 3, GL_FLOAT, GL_FALSE, sizeof(Geometry::Vertex),
+                              reinterpret_cast<const void*>(sizeof(XrVector3f)));
+
+
+
+
+        glGenBuffers(1, &m_pntBuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, m_pntBuffer);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Geometry::data) * Geometry::data.size(), Geometry::data.data(), GL_STATIC_DRAW);
 
         glGenVertexArrays(1, &m_vao_pnt);
         glBindVertexArray(m_vao_pnt);
@@ -261,6 +284,8 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glVertexAttribPointer(m_vertexAttribCoords, 4, GL_FLOAT, GL_FALSE, sizeof(Geometry::Iris), nullptr);
         glVertexAttribPointer(m_vertexAttribColor, 3, GL_FLOAT, GL_FALSE, sizeof(Geometry::Iris),
                               reinterpret_cast<const void*>(sizeof(XrVector4f)));
+
+
 
         glGenBuffers(1, &m_tessBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, m_tessBuffer);
@@ -515,19 +540,9 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         XrMatrix4x4f_Multiply(&vp, &proj, &view);
 
 
-        // Render each cube
-        //for (const Cube& cube : cubes) {
-
-        // Compute the model-view-projection transform and set it..
-        //XrMatrix4x4f model;
-        //XrMatrix4x4f_CreateIdentity(&model);
-        // XrMatrix4x4f_CreateTranslationRotationScale(&model, &cube.Pose.position, &cube.Pose.orientation, &cube.Scale);
-        //XrMatrix4x4f mvp;
-        //XrMatrix4x4f_Multiply(&mvp, &vp, &model);
         glUniformMatrix4fv(m_modelViewProjectionUniformLocation, 1, GL_FALSE, reinterpret_cast<const GLfloat*>(&vp));
 
         glUniform1fv(glGetUniformLocation(m_program, "proj5d"), 25, m5x5);
-        //glUniform1i(glGetUniformLocation(m_program, "projIdx"), projIdx);
 
 
         /**/
@@ -540,11 +555,7 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glUniform1fv(glGetUniformLocation(m_program, "YWRot"), 25, Matrix_lib::getYWRotationMatrix(options->YWRot * speeee).data());
         glUniform1fv(glGetUniformLocation(m_program, "ZWRot"), 25, Matrix_lib::getZWRotationMatrix(options->ZWRot * speeee).data());
 
-
         /*/
-        
-
-        
 
         options->XWRot = fmod(options->XWRot, 180.f);
         options->YWRot = fmod(options->YWRot, 360.f);
@@ -651,10 +662,6 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
 
         int atlas = 0;
 
-
-        // Draw the cube.
-        // glDrawElements(GL_POINTS, static_cast<GLsizei>(ArraySize(Geometry::c_cubeIndices)), GL_UNSIGNED_SHORT, nullptr);
-
         glActiveTexture(GL_TEXTURE0 + atlas);
         glBindTexture(GL_TEXTURE_2D, m_texture);
 
@@ -671,6 +678,26 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
 
         glBindVertexArray(m_vao_tess);
         glDrawArrays(GL_LINES, 0, Geometry::tess.size());
+
+
+
+        // Set cube primitive data.
+        glBindVertexArray(m_vao);
+
+        // Render each cube
+        for (const Cube& cube : cubes) {
+            // Compute the model-view-projection transform and set it..
+            XrMatrix4x4f model;
+            XrMatrix4x4f_CreateTranslationRotationScale(&model, &cube.Pose.position, &cube.Pose.orientation, &cube.Scale);
+            XrMatrix4x4f mvp;
+            XrMatrix4x4f_Multiply(&mvp, &vp, &model);
+            glUniformMatrix4fv(m_modelViewProjectionUniformLocation, 1, GL_FALSE, reinterpret_cast<const GLfloat*>(&mvp));
+
+            // Draw the cube.
+            glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(ArraySize(Geometry::c_cubeIndices)), GL_UNSIGNED_SHORT, nullptr);
+        }
+
+
 
 
         glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
@@ -708,10 +735,12 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
     GLint m_modelViewProjectionUniformLocation{0};
     GLint m_vertexAttribCoords{0};
     GLint m_vertexAttribColor{0};
+    GLuint m_vao{0};
     GLuint m_vao_pnt{0};
     GLuint m_vao_tess{0};
     GLuint m_pntBuffer{0};
     GLuint m_tessBuffer{0};
+    GLuint m_cubeVertexBuffer{0};
     GLuint m_cubeIndexBuffer{0};
     GLuint m_texture{0};
 
