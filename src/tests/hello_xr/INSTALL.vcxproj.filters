@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\7dd8cfdcb1cf917d35b89727b98f25f2\INSTALL_force.rule">
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\b04f189dd261bac050788899b306df00\INSTALL_force.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{BF05F9FF-28C0-3DD6-B972-FDAD4B78927F}</UniqueIdentifier>
+      <UniqueIdentifier>{D0370173-17AF-3A03-BC4B-4596E8575F7A}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

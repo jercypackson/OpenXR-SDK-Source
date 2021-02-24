@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\7dd8cfdcb1cf917d35b89727b98f25f2\run_hello_xr_glsl_compiles.rule">
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\b04f189dd261bac050788899b306df00\run_hello_xr_glsl_compiles.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\CMakeLists.txt" />
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\CMakeFiles\run_hello_xr_glsl_compiles" />
+    <None Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\CMakeFiles\run_hello_xr_glsl_compiles" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{BF05F9FF-28C0-3DD6-B972-FDAD4B78927F}</UniqueIdentifier>
+      <UniqueIdentifier>{D0370173-17AF-3A03-BC4B-4596E8575F7A}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_runtimes\runtime_test.cpp">
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\loader_test\test_runtimes\runtime_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\CMakeFiles\493d9c2b6df67aa153e225d539cf776c\test_runtime.json.rule">
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\9bd7ff571c1e30b9b4092d88ce89d7d7\test_runtime.json.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\test_runtimes\CMakeLists.txt" />
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\src\tests\loader_test\test_runtimes\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\data\repos\OpenXR-SDK-Source\src\tests\loader_test\resources\runtimes\test_runtime.json" />
+    <None Include="C:\data\repos\4D-OpenXR\src\tests\loader_test\resources\runtimes\test_runtime.json" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{BF05F9FF-28C0-3DD6-B972-FDAD4B78927F}</UniqueIdentifier>
+      <UniqueIdentifier>{D0370173-17AF-3A03-BC4B-4596E8575F7A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{5DFCFBA9-B3AB-3927-95AB-272A215869D4}</UniqueIdentifier>
+      <UniqueIdentifier>{26E6D74E-75F2-3FFF-9022-D24F88FA93FC}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

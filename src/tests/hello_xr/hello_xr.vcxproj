@@ -12,9 +12,17 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AAC1FB8D-DED3-3555-94C7-BF6ECC514C21}</ProjectGuid>
+    <ProjectGuid>{BA1BD98B-DEA0-3F6E-96B5-9674BE562B80}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
@@ -32,6 +40,16 @@
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -41,29 +59,41 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">hello_xr.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">hello_xr</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">hello_xr.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">hello_xr</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">hello_xr.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">hello_xr</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">hello_xr.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">hello_xr</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp14</LanguageStandard>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -77,10 +107,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -93,8 +123,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/data/repos/OpenXR-SDK-Source/src/tests/hello_xr/Debug/hello_xr.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/data/repos/OpenXR-SDK-Source/src/tests/hello_xr/Debug/hello_xr.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/data/repos/4D-OpenXR/src/tests/hello_xr/Debug/hello_xr.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/data/repos/4D-OpenXR/src/tests/hello_xr/Debug/hello_xr.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -103,7 +133,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
@@ -124,10 +154,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\data\repos\OpenXR-SDK-Source\src\..\include;C:\data\repos\OpenXR-SDK-Source\src;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr;C:\data\repos\OpenXR-SDK-Source\src\common;C:\data\repos\OpenXR-SDK-Source\include;C:\data\repos\OpenXR-SDK-Source\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -140,8 +170,101 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/data/repos/OpenXR-SDK-Source/src/tests/hello_xr/Release/hello_xr.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/data/repos/OpenXR-SDK-Source/src/tests/hello_xr/Release/hello_xr.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/data/repos/4D-OpenXR/src/tests/hello_xr/Release/hello_xr.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/data/repos/4D-OpenXR/src/tests/hello_xr/Release/hello_xr.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\loader\MinSizeRel\openxr_loader.lib;..\..\MinSizeRel\openxr-gfxwrapper.lib;ole32.lib;d3d11.lib;d3d12.lib;d3dcompiler.lib;dxgi.lib;advapi32.lib;pathcch.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/data/repos/4D-OpenXR/src/tests/hello_xr/MinSizeRel/hello_xr.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/data/repos/4D-OpenXR/src/tests/hello_xr/MinSizeRel/hello_xr.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;XR_USE_GRAPHICS_API_OPENGL;XR_OS_WINDOWS;NOMINMAX;XR_USE_PLATFORM_WIN32;XR_USE_GRAPHICS_API_D3D11;XR_USE_GRAPHICS_API_D3D12;OPENXR_HAVE_COMMON_CONFIG;XR_USE_TIMESPEC;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\data\repos\4D-OpenXR\src\..\include;C:\data\repos\4D-OpenXR\src;C:\data\repos\4D-OpenXR\src\tests\hello_xr;C:\data\repos\4D-OpenXR\src\common;C:\data\repos\4D-OpenXR\include;C:\data\repos\4D-OpenXR\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\loader\RelWithDebInfo\openxr_loader.lib;..\..\RelWithDebInfo\openxr-gfxwrapper.lib;ole32.lib;d3d11.lib;d3d12.lib;d3dcompiler.lib;dxgi.lib;advapi32.lib;pathcch.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/data/repos/4D-OpenXR/src/tests/hello_xr/RelWithDebInfo/hello_xr.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/data/repos/4D-OpenXR/src/tests/hello_xr/RelWithDebInfo/hello_xr.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -149,11 +272,11 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\CMakeLists.txt">
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\CMakeLists.txt">
       <StdOutEncoding>UTF-8</StdOutEncoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/data/repos/OpenXR-SDK-Source/src/tests/hello_xr/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/data/repos/4D-OpenXR/src/tests/hello_xr/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/OpenXR-SDK-Source -BC:/data/repos/OpenXR-SDK-Source --check-stamp-file C:/data/repos/OpenXR-SDK-Source/src/tests/hello_xr/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/4D-OpenXR -BC:/data/repos/4D-OpenXR --check-stamp-file C:/data/repos/4D-OpenXR/src/tests/hello_xr/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -161,12 +284,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\frag.spv;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\vert.spv;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\frag.spv;C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\vert.spv;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/data/repos/OpenXR-SDK-Source/src/tests/hello_xr/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/data/repos/4D-OpenXR/src/tests/hello_xr/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/OpenXR-SDK-Source -BC:/data/repos/OpenXR-SDK-Source --check-stamp-file C:/data/repos/OpenXR-SDK-Source/src/tests/hello_xr/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/4D-OpenXR -BC:/data/repos/4D-OpenXR --check-stamp-file C:/data/repos/4D-OpenXR/src/tests/hello_xr/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -174,71 +297,99 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\frag.spv;C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\vert.spv;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\frag.spv;C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\vert.spv;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/data/repos/4D-OpenXR/src/tests/hello_xr/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/4D-OpenXR -BC:/data/repos/4D-OpenXR --check-stamp-file C:/data/repos/4D-OpenXR/src/tests/hello_xr/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\frag.spv;C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\vert.spv;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/data/repos/4D-OpenXR/src/tests/hello_xr/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/data/repos/4D-OpenXR -BC:/data/repos/4D-OpenXR --check-stamp-file C:/data/repos/4D-OpenXR/src/tests/hello_xr/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\frag.spv;C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\vert.spv;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\src\tests\hello_xr\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\d3d_common.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\graphicsplugin_d3d11.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\graphicsplugin_d3d12.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\graphicsplugin_factory.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\graphicsplugin_opengl.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\graphicsplugin_opengles.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\graphicsplugin_vulkan.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\logger.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\main.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\openxr_program.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\pch.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\platformplugin_android.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\platformplugin_factory.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\platformplugin_win32.cpp" />
-    <ClCompile Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\platformplugin_xlib.cpp" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\check.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\common.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\d3d_common.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\data.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\geometry.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\graphicsapi.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\graphicsplugin.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\logger.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\openxr_program.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\options.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\pch.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\platformdata.h" />
-    <ClInclude Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\platformplugin.h" />
-    <ClInclude Include="Matrix_lib.h" />
-    <None Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\frag.glsl">
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\d3d_common.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\graphicsplugin_d3d11.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\graphicsplugin_d3d12.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\graphicsplugin_factory.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\graphicsplugin_opengl.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\graphicsplugin_opengles.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\graphicsplugin_vulkan.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\logger.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\main.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\openxr_program.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\pch.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\platformplugin_android.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\platformplugin_factory.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\platformplugin_win32.cpp" />
+    <ClCompile Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\platformplugin_xlib.cpp" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\Matrix_lib.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\check.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\common.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\d3d_common.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\data.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\geometry.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\graphicsapi.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\graphicsplugin.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\logger.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\openxr_program.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\options.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\pch.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\platformdata.h" />
+    <ClInclude Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\platformplugin.h" />
+    <None Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\frag.glsl">
     </None>
-    <None Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\vulkan_shaders\vert.glsl">
+    <None Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\vert.glsl">
     </None>
     <None Include="shaders\fragment.glsl" />
+    <None Include="shaders\sphere.frag" />
+    <None Include="shaders\sphere.vert" />
     <None Include="shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\ZERO_CHECK.vcxproj">
-      <Project>{97EF301E-79D1-3DB0-8AAA-3404247F6741}</Project>
+    <ProjectReference Include="C:\data\repos\4D-OpenXR\ZERO_CHECK.vcxproj">
+      <Project>{C2053B3E-0F68-31F7-8B4F-BEFAA43F4617}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\include\openxr\generate_openxr_header.vcxproj">
-      <Project>{CDAF68B4-2F6D-34A4-9F60-19644AD6B2DF}</Project>
+    <ProjectReference Include="C:\data\repos\4D-OpenXR\include\openxr\generate_openxr_header.vcxproj">
+      <Project>{AF70FB87-4E22-3257-B6CD-B6DAF31E965D}</Project>
       <Name>generate_openxr_header</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\src\openxr-gfxwrapper.vcxproj">
-      <Project>{8132787B-5CB1-3956-A933-6757F0F84110}</Project>
+    <ProjectReference Include="C:\data\repos\4D-OpenXR\src\openxr-gfxwrapper.vcxproj">
+      <Project>{D3EC12F4-C038-326F-B7DA-3D2B8CB3D876}</Project>
       <Name>openxr-gfxwrapper</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\src\loader\openxr_loader.vcxproj">
-      <Project>{3139446B-D6EC-335C-9CD5-60AD6CA4EC4E}</Project>
+    <ProjectReference Include="C:\data\repos\4D-OpenXR\src\loader\openxr_loader.vcxproj">
+      <Project>{F91DFAA0-E9B2-36BB-8B2C-C4B3FB5B97A9}</Project>
       <Name>openxr_loader</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\data\repos\OpenXR-SDK-Source\src\tests\hello_xr\run_hello_xr_glsl_compiles.vcxproj">
-      <Project>{1B221629-4FDE-3973-9CCB-708E904ADB6C}</Project>
+    <ProjectReference Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\run_hello_xr_glsl_compiles.vcxproj">
+      <Project>{0CEED8FE-D535-34AF-896F-40EFFEFD591F}</Project>
       <Name>run_hello_xr_glsl_compiles</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
