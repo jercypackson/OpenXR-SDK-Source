@@ -19,6 +19,10 @@ uniform float ZWRot[25];
 
 uniform float gms_base[25];
 
+uniform float campos[4];
+uniform bool dodiscard = false;
+
+
 
 //float dot(float a0, float a1, float a2, float a3, float a4, float b[5]) {
 //    return dot(a0, a1, a2, a3, a4, b[0], b[1], b[2], b[3], b[4]);
@@ -66,14 +70,20 @@ void main() {
         0, 0, 0, 3, 1);
 
 
-    float[] v5 = float[5](VertexPos.x, VertexPos.y, VertexPos.z, VertexPos.w, 1.0);
+    float[] v5 = //float[5](campos[0], campos[1], campos[2], campos[3], 1.0);
+        float[5](VertexPos.x, VertexPos.y, VertexPos.z, VertexPos.w, 1.0);
 
-
+    if (dodiscard) {
+        v5[0] = campos[0];
+        v5[1] = campos[1];
+        v5[2] = campos[2];
+        v5[3] = campos[3];
+    }
     v5 = mult(ZWRot, v5);
     v5 = mult(XWRot, v5);
     v5 = mult(YWRot, v5);
 
-    //float[] r = mult(gms_base, v5);
+    //v5 = mult(gms_base, v5);
 
     float[] view = mult(view4d, v5);
     float[] projected = mult(proj5d, view);

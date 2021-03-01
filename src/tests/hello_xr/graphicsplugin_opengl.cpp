@@ -28,6 +28,9 @@
 namespace {
 constexpr float DarkSlateGray[] = {0.184313729f, 0.309803933f, 0.309803933f, 1.0f};
 
+int width = 932;
+int height = 1036;
+
 //static const char* VertexShaderGlsl = R"_(
 //    #version 410
 //
@@ -118,7 +121,7 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         ksGpuSurfaceColorFormat colorFormat{KS_GPU_SURFACE_COLOR_FORMAT_B8G8R8A8};
         ksGpuSurfaceDepthFormat depthFormat{KS_GPU_SURFACE_DEPTH_FORMAT_D24};
         ksGpuSampleCount sampleCount{KS_GPU_SAMPLE_COUNT_1};
-        if (!ksGpuWindow_Create(&window, &driverInstance, &queueInfo, 0, colorFormat, depthFormat, sampleCount, 640, 480, false)) {
+        if (!ksGpuWindow_Create(&window, &driverInstance, &queueInfo, 0, colorFormat, depthFormat, sampleCount, width, height, false)) {
             THROW("Unable to create GL context");
         }
 
@@ -182,7 +185,7 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
     }
 
     void loadData() {
-        std::ifstream input("data/embedding.csv");
+        std::ifstream input("data/pca.csv");
         std::string line;
         getline(input, line);  // discard headers
 
@@ -200,9 +203,11 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
             }
             int c = std::stoi(line.substr(start, end));
 
-            Geometry::data.push_back({{vec[0], vec[1], vec[2], vec[3]}, Geometry::colors.at(c)});
+            float size = 2.f;
 
-            if (Geometry::data.size() > 5000) {
+            Geometry::data.push_back({{vec[0] * size, vec[1] * size, vec[2] * size, vec[3] * size}, Geometry::colors.at(c)});
+
+            if (Geometry::data.size() >= 1) {
                 return;
             }
         }
@@ -475,7 +480,7 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glClearColor(DarkSlateGray[0], DarkSlateGray[1], DarkSlateGray[2], DarkSlateGray[3]);
         glClearDepth(1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-        glPointSize(50.f);
+        glPointSize(20.f);
 
 
         // Set shaders and uniform variables.
@@ -529,10 +534,9 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         /**/
 
         const auto& pose = layerView.pose;
-        
 
         auto pos = pose.position;
-        //pos.z = 6;
+        //pos.z = 2;
 
         XrMatrix4x4f_CreateProjectionFov(&proj, GRAPHICS_OPENGL, layerView.fov, 0.05f, 100.0f);
         XrMatrix4x4f_CreateTranslationRotationScale(&toView, &pos, &pose.orientation, &scale);
@@ -557,36 +561,53 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
 
         /*/
 
-        options->XWRot = fmod(options->XWRot, 180.f);
-        options->YWRot = fmod(options->YWRot, 360.f);
-        options->ZWRot = fmod(options->ZWRot, 180.f);
 
 
-        float toRad = 0.0174533;
+        float toRad = 0.0174533f;
 
+
+        // hyperspherical coords
+        options->XWRot = fmod(options->XWRot + 360.f, 360.f);
+        options->YWRot = fmod(options->YWRot + 360.f, 360.f);
+        options->ZWRot = fmod(options->ZWRot + 360.f, 360.f);
         auto phi1 = options->XWRot * toRad;
         auto phi2 = options->YWRot * toRad;
         auto phi3 = options->ZWRot * toRad;
-        
         auto sinphi1 = sin(phi1);
         auto sinphi2 = sin(phi2);
+        auto x_4 = -cos(phi1);
+        auto x_2 = -sinphi1 * cos(phi2);
+        auto x_1 = -sinphi1 * sinphi2 * cos(phi3);
+        auto x_3 = -sinphi1 * sinphi2 * sin(phi3);
 
-        auto x_1 = cos(phi1);
-        auto x_2 = sinphi1 * cos(phi2);
-        auto x_3 = sinphi1 * sinphi2 * cos(phi3);
-        auto x_4 = sinphi1 * sinphi2 * sin(phi3);
+        //hopf coords
+        //options->XWRot = fmod(options->XWRot + 360.f, 360.f);
+        //options->YWRot = std::max(std::min(options->YWRot, 179.f), 1.f);
+        //options->ZWRot = fmod(options->ZWRot + 360.f, 360.f);
+        //auto x_1 = cos(options->XWRot * toRad) * sin(options->YWRot * toRad);
+        //auto x_2 = sin(options->XWRot * toRad) * sin(options->YWRot * toRad);
+        //auto x_3 = cos(options->ZWRot * toRad) * cos(options->YWRot * toRad);
+        //auto x_4 = sin(options->ZWRot * toRad) * cos(options->YWRot * toRad);
 
-        std::vector<std::array<float, 4>> ai = {
+        std::vector<std::array<float, 4>> ai;
+        ai = {
             {x_1, x_2, x_3, x_4},
             {0.f, 1.f, 0.f, 0.f},
             {0.f, 0.f, 1.f, 0.f},
             {0.f, 0.f, 0.f, 1.f}
         };
 
-        //https://web.archive.org/web/20150807051016/http://ocw.mit.edu/courses/mathematics/18-335j-introduction-to-numerical-methods-fall-2010/lecture-notes/MIT18_335JF10_lec10a_hand.pdf
+        auto tmp = {x_1, x_2, x_3, x_4};
+        auto tmp2 = data(tmp);
+        glUniform1fv(glGetUniformLocation(m_program, "campos"), 4, tmp2);
+
+        if (options->print) {
+            std::cout << x_1 << " " << x_2 << " " << x_3 << " " << x_4 << std::endl;
+            options->print = false;
+        }
 
         std::vector<std::array<float, 4>> r(4);
-        std::vector<std::array<float, 4>> q;
+        std::vector<std::array<float, 4>> q(4);
 
         auto _pow = [](std::array<float, 4> a, float b)
         {
@@ -628,31 +649,37 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
             return tmp;
         };
 
-        auto v = ai; // deep copy
+        //https://blogs.mathworks.com/cleve/2016/07/25/compare-gram-schmidt-and-householder-orthogonalization-algorithms/
 
-        for (int i = 0; i < 4; ++i) {
+        for (int k = 0; k < 4; ++k) {
 
-            r[i][i] = sqrt(_pow(v[i], 2));
+            q[k] = ai[k];
 
-            q.push_back(_div(v[i], r[i][i]));
-
-            for (int j = i + 1; j < 4; ++j) {
-                r[i][j] = _dot(q[i], v[i]);
-                v[j] = _sub(v[j], _mul(q[i], r[i][j]));
+            for (int i = 0; i < k; ++i) {
+                r[k][i] = _dot(q[i], q[k]);
+                q[k] = _sub(q[k], _mul(q[i], r[k][i]));
             }
+
+
+            r[k][k] = sqrt(_pow(q[k], 2));
+            q[k] = _div(q[k], r[k][k]);
         }
 
 
         int c = 0;
         std::array<float, 25> gms_base{};
 
+        std::cout << std::setprecision(2) << std::fixed;
+        bool print = false;
         for (auto && vec : q) {
             for (auto val : vec) {
+                if (print) std::cout << val << " ";
                 gms_base[c] = val;
                 c++;
             }
             gms_base[c] = 0;
             c++;
+            if (print) std::cout << std::endl;
         }
         gms_base[24] = 1;
 
@@ -671,7 +698,7 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glUniform1i(glGetUniformLocation(m_program, "dodiscard"), 1);
 
         glBindVertexArray(m_vao_pnt);
-        glDrawArrays(GL_POINTS, 0, Geometry::data.size());
+        //glDrawArrays(GL_POINTS, 0, Geometry::data.size());
         //}
 
         glUniform1i(glGetUniformLocation(m_program, "dodiscard"), 0);
@@ -703,8 +730,8 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
         glBindFramebuffer(GL_READ_FRAMEBUFFER, m_swapchainFramebuffer);
         glBlitFramebuffer(layerView.subImage.imageRect.offset.x, layerView.subImage.imageRect.offset.y,
-                          layerView.subImage.imageRect.extent.width, layerView.subImage.imageRect.extent.height,
-                          0, 0, 640, 480,
+                          layerView.subImage.imageRect.extent.width, layerView.subImage.imageRect.extent.height, 
+                          0, 0, width, height,
                           GL_COLOR_BUFFER_BIT, GL_LINEAR);
 
         glBindVertexArray(0);
@@ -716,6 +743,8 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         if ((everyOther++ & 1) != 0) {
             ksGpuWindow_SwapBuffers(&window);
         }
+
+        ksGpuWindow_ProcessEvents(&window);
     }
 
    private:

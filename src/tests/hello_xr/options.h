@@ -19,4 +19,6 @@ struct Options {
     float XWRot = 0;
     float YWRot = 0;
     float ZWRot = 0;
+
+    bool print = false;
 };

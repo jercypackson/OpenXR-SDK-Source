@@ -23,12 +23,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\5de5b792e05fdc922be41a16f47a48bd\xr_generated_api_dump.hpp.rule">
-      <Filter>CMake Rules</Filter>
-    </CustomBuild>
-    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\5de5b792e05fdc922be41a16f47a48bd\xr_generated_api_dump.cpp.rule">
-      <Filter>CMake Rules</Filter>
-    </CustomBuild>
     <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\5de5b792e05fdc922be41a16f47a48bd\XrApiLayer_api_dump.json.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>

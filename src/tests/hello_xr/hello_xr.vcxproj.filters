@@ -101,16 +101,10 @@
     <None Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\vert.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shaders\vertex.glsl">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="shaders\fragment.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shaders\sphere.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="shaders\sphere.vert">
+    <None Include="shaders\vertex.glsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

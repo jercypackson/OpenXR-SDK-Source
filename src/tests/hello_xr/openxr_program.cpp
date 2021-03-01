@@ -948,7 +948,7 @@ struct OpenXrProgram : IOpenXrProgram {
             if (XR_UNQUALIFIED_SUCCESS(res)) {
                 if ((spaceLocation.locationFlags & XR_SPACE_LOCATION_POSITION_VALID_BIT) != 0 &&
                     (spaceLocation.locationFlags & XR_SPACE_LOCATION_ORIENTATION_VALID_BIT) != 0) {
-                    cubes.push_back(Cube{spaceLocation.pose, {0.25f, 0.25f, 0.25f}});
+                    //cubes.push_back(Cube{spaceLocation.pose, {0.25f, 0.25f, 0.25f}});
                 }
             } else {
                 Log::Write(Log::Level::Verbose, Fmt("Unable to locate a visualized reference space in app space: %d", res));
@@ -984,8 +984,8 @@ struct OpenXrProgram : IOpenXrProgram {
 
                     prevPos = spaceLocation.pose.position;
 
-                    //float scale = 0.1f * m_input.handScale[hand];
-                    //cubes.push_back(Cube{spaceLocation.pose, {scale, scale, scale}});
+                    float scale = 0.1f * m_input.handScale[hand];
+                    cubes.push_back(Cube{spaceLocation.pose, {scale, scale, scale}});
 
                 }
             } else {

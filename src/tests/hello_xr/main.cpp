@@ -262,29 +262,32 @@ int main(int argc, char* argv[]) {
                         quitKeyPressed = true;
                         return;
                     case 'a':
-                        options->XWRot++;
-                        //std::cout << "XWRot: " << options->XWRot << std::endl;
-                        break;
-                    case 'd':
                         options->XWRot--;
                         //std::cout << "XWRot: " << options->XWRot << std::endl;
                         break;
+                    case 'd':
+                        options->XWRot++;
+                        //std::cout << "XWRot: " << options->XWRot << std::endl;
+                        break;
                     case 'q':
-                        options->YWRot++;
+                        options->ZWRot--;
                         break;
                     case 'e':
-                        options->YWRot--;
-                        break;
-                    case 'w':
                         options->ZWRot++;
                         break;
+                    case 'w':
+                        options->YWRot++;
+                        break;
                     case 's':
-                        options->ZWRot--;
+                        options->YWRot--;
                         break;
                     case 'r':
                         options->XWRot = 0;
                         options->YWRot = 0;
                         options->ZWRot = 0;
+                        break;
+                    case 'p':
+                        options->print = true;
                         break;
                     default:
                         std::cout << ch;

@@ -363,8 +363,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <None Include="C:\data\repos\4D-OpenXR\src\tests\hello_xr\vulkan_shaders\vert.glsl">
     </None>
     <None Include="shaders\fragment.glsl" />
-    <None Include="shaders\sphere.frag" />
-    <None Include="shaders\sphere.vert" />
     <None Include="shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
