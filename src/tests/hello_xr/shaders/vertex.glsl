@@ -69,30 +69,29 @@ void main() {
         0, 0, 0, -1, 0,
         0, 0, 0, 3, 1);
 
-
     float[] v5 = //float[5](campos[0], campos[1], campos[2], campos[3], 1.0);
         float[5](VertexPos.x, VertexPos.y, VertexPos.z, VertexPos.w, 1.0);
 
-    if (dodiscard) {
-        v5[0] = campos[0];
-        v5[1] = campos[1];
-        v5[2] = campos[2];
-        v5[3] = campos[3];
-    }
-    v5 = mult(ZWRot, v5);
-    v5 = mult(XWRot, v5);
-    v5 = mult(YWRot, v5);
+    //if (dodiscard) {
+    //    v5[0] = campos[0];
+    //    v5[1] = campos[1];
+    //    v5[2] = campos[2];
+    //    v5[3] = campos[3];
+    //}
 
-    //v5 = mult(gms_base, v5);
+    //v5 = mult(ZWRot, v5);
+    //v5 = mult(XWRot, v5);
+    //v5 = mult(YWRot, v5);
 
-    float[] view = mult(view4d, v5);
-    float[] projected = mult(proj5d, view);
+    v5 = mult(gms_base, v5);
+
+    v5 = mult(view4d, v5);
+    v5 = mult(proj5d, v5);
 
 
-    vec3 pos = vec3(projected[0], projected[1], projected[2]) / projected[4];
+    vec3 pos = vec3(v5[0], v5[1], v5[2]) / v5[4];
 
-    pos += vec3(0, 0.5, 0); //move off the floor
-    //vec3 pos = VertexPos.xyz;
+    //pos += vec3(0, 0.5, 0); //move off the floor
     gl_Position = ModelViewProjection * vec4(pos, 1.0);
     vert.PSVertexColor = VertexColor;
     vert.vertID = gl_VertexID;

@@ -105,6 +105,202 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\4996f06294afca9193246fe9aa883c58\xr_generated_dispatch_table.h.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating xr_generated_dispatch_table.h using C:/Python39/python.exe on utility_source_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_dispatch_table.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\utility_source_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating xr_generated_dispatch_table.h using C:/Python39/python.exe on utility_source_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_dispatch_table.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\utility_source_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating xr_generated_dispatch_table.h using C:/Python39/python.exe on utility_source_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_dispatch_table.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\utility_source_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating xr_generated_dispatch_table.h using C:/Python39/python.exe on utility_source_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_dispatch_table.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\utility_source_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\4996f06294afca9193246fe9aa883c58\xr_generated_dispatch_table.c.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating xr_generated_dispatch_table.c using C:/Python39/python.exe on utility_source_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_dispatch_table.c
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\utility_source_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.c</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating xr_generated_dispatch_table.c using C:/Python39/python.exe on utility_source_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_dispatch_table.c
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\utility_source_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.c</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating xr_generated_dispatch_table.c using C:/Python39/python.exe on utility_source_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_dispatch_table.c
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\utility_source_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.c</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating xr_generated_dispatch_table.c using C:/Python39/python.exe on utility_source_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_dispatch_table.c
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\utility_source_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.c</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\b5c97af1e6a01a5fd2b710fb625d6831\xr_global_generated_files.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.h;C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.c;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\src\CMakeFiles\xr_global_generated_files</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.h;C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.c;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\src\CMakeFiles\xr_global_generated_files</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.h;C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.c;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\src\CMakeFiles\xr_global_generated_files</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.h;C:\data\repos\4D-OpenXR\src\xr_generated_dispatch_table.c;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\src\CMakeFiles\xr_global_generated_files</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
     <CustomBuild Include="C:\data\repos\4D-OpenXR\src\CMakeLists.txt">
       <StdOutEncoding>UTF-8</StdOutEncoding>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/data/repos/4D-OpenXR/src/CMakeLists.txt</Message>
@@ -162,6 +358,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <None Include="C:\data\repos\4D-OpenXR\src\CMakeFiles\xr_global_generated_files">
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\data\repos\4D-OpenXR\ZERO_CHECK.vcxproj">

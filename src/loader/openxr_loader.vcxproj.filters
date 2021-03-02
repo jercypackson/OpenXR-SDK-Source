@@ -80,6 +80,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\31bace5d4bd09f22ddd1efaabba140a3\xr_generated_loader.hpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\31bace5d4bd09f22ddd1efaabba140a3\xr_generated_loader.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
     <CustomBuild Include="C:\data\repos\4D-OpenXR\src\loader\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +94,9 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D0370173-17AF-3A03-BC4B-4596E8575F7A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{8D12AFA7-5EDA-3B12-8496-D3967C8C0B9C}</UniqueIdentifier>
     </Filter>

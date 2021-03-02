@@ -207,9 +207,7 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
 
             Geometry::data.push_back({{vec[0] * size, vec[1] * size, vec[2] * size, vec[3] * size}, Geometry::colors.at(c)});
 
-            if (Geometry::data.size() >= 1) {
-                return;
-            }
+            if (Geometry::data.size() >= 5000) return;
         }
     }
 
@@ -451,6 +449,9 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         return depthTexture;
     }
 
+    XrMatrix4x4f rot{1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1};
+
+
     void RenderView(const XrCompositionLayerProjectionView& layerView, const XrSwapchainImageBaseHeader* swapchainImage,
                     int64_t swapchainFormat, const std::vector<Cube>& cubes) override {
         CHECK(layerView.subImage.imageArrayIndex == 0);  // Texture arrays not supported.
@@ -548,23 +549,62 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
 
         glUniform1fv(glGetUniformLocation(m_program, "proj5d"), 25, m5x5);
 
-
-        /**/
-        options->XWRot = fmod(options->XWRot, 360.f);
-        options->YWRot = fmod(options->YWRot, 360.f);
-        options->ZWRot = fmod(options->ZWRot, 360.f);
-
-        float speeee = 0.0028f * 8;
-        glUniform1fv(glGetUniformLocation(m_program, "XWRot"), 25, Matrix_lib::getXWRotationMatrix(options->XWRot * speeee).data());
-        glUniform1fv(glGetUniformLocation(m_program, "YWRot"), 25, Matrix_lib::getYWRotationMatrix(options->YWRot * speeee).data());
-        glUniform1fv(glGetUniformLocation(m_program, "ZWRot"), 25, Matrix_lib::getZWRotationMatrix(options->ZWRot * speeee).data());
-
-        /*/
-
-
-
         float toRad = 0.0174533f;
 
+        /**/
+
+        //float speeee = 0.0028f * 8;
+        //glUniform1fv(glGetUniformLocation(m_program, "XWRot"), 25, Matrix_lib::getXWRotationMatrix(options->XWRot * speeee).data());
+        //glUniform1fv(glGetUniformLocation(m_program, "YWRot"), 25, Matrix_lib::getYWRotationMatrix(options->YWRot * speeee).data());
+        //glUniform1fv(glGetUniformLocation(m_program, "ZWRot"), 25, Matrix_lib::getZWRotationMatrix(options->ZWRot * speeee).data());
+
+        float speed = 5;
+        auto xw = Matrix_lib::getXWRotationMatrix(options->XWRot * toRad * speed);
+        auto yw = Matrix_lib::getYWRotationMatrix(options->YWRot * toRad * speed);
+        auto zw = Matrix_lib::getZWRotationMatrix(options->ZWRot * toRad * speed);
+        
+
+        XrMatrix4x4f result[10];
+        int r = 0;
+        result[r] = {
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0,
+            0, 0, 0, 1
+        };
+
+        XrMatrix4x4f_Multiply(&result[r+1], &result[r], &zw); r++;
+        XrMatrix4x4f_Multiply(&result[r+1], &result[r], &xw); r++;
+        XrMatrix4x4f_Multiply(&result[r+1], &result[r], &yw); r++;
+        XrMatrix4x4f_Multiply(&result[r+1], &result[r], &rot); r++;
+
+        rot = result[r];
+
+
+        int c = 0;
+        std::array<float, 25> gms_base{};
+
+        for (int a = 0; a < 4; ++a) {
+            for (int b = 0; b < 4; ++b) {
+                int id = a * 4 + b;
+                gms_base[c] = rot.m[id];
+                c++;
+            }
+            gms_base[c] = 0;
+            c++;
+        }
+        gms_base[24] = 1;
+
+
+
+        glUniform1fv(glGetUniformLocation(m_program, "gms_base"), 25, gms_base.data());
+
+
+        options->XWRot = 0;
+        options->YWRot = 0;
+        options->ZWRot = 0;
+
+        /*/
 
         // hyperspherical coords
         options->XWRot = fmod(options->XWRot + 360.f, 360.f);
@@ -698,7 +738,7 @@ struct OpenGLGraphicsPlugin : public IGraphicsPlugin {
         glUniform1i(glGetUniformLocation(m_program, "dodiscard"), 1);
 
         glBindVertexArray(m_vao_pnt);
-        //glDrawArrays(GL_POINTS, 0, Geometry::data.size());
+        glDrawArrays(GL_POINTS, 0, Geometry::data.size());
         //}
 
         glUniform1i(glGetUniformLocation(m_program, "dodiscard"), 0);

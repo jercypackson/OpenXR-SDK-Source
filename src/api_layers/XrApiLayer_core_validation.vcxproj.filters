@@ -29,6 +29,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\5de5b792e05fdc922be41a16f47a48bd\xr_generated_core_validation.hpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\5de5b792e05fdc922be41a16f47a48bd\xr_generated_core_validation.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
     <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\5de5b792e05fdc922be41a16f47a48bd\XrApiLayer_core_validation.json.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>

@@ -2,116 +2,87 @@
 
 #include <array>
 #include <cmath>
+#include <xr_linear.h>
 
 // taken from https://github.com/aleksandr-amirkhanov/ManyLands/blob/5565d9013b54a501544c79fb260ccbe0a1cfb31c/src/Matrix_lib.h#L189
 
 class Matrix_lib {
    public:
-    static std::array<float, 25> getXWRotationMatrix(float angle) {
+    static XrMatrix4x4f getXWRotationMatrix(float angle) {
 
-        std::array<float, 25> rotation{};
+        XrMatrix4x4f rotation{};
 
-        rotation[0] = std::cos(angle);
-        rotation[1] = 0;
-        rotation[2] = 0;
-        rotation[3] = std::sin(angle);
-        rotation[4] = 0;
-
-        rotation[5] = 0;
-        rotation[6] = 1;
-        rotation[7] = 0;
-        rotation[8] = 0;
-        rotation[9] = 0;
-
-        rotation[10] = 0;
-        rotation[11] = 0;
-        rotation[12] = 1;
-        rotation[13] = 0;
-        rotation[14] = 0;
-
-        rotation[15] = -std::sin(angle);
-        rotation[16] = 0;
-        rotation[17] = 0;
-        rotation[18] = std::cos(angle);
-        rotation[19] = 0;
-
-        rotation[20] = 0;
-        rotation[21] = 0;
-        rotation[22] = 0;
-        rotation[23] = 0;
-        rotation[24] = 1;
+        rotation.m[0] = std::cos(angle);
+        rotation.m[1] = 0;
+        rotation.m[2] = 0;
+        rotation.m[3] = std::sin(angle);
+        
+        rotation.m[4] = 0;
+        rotation.m[5] = 1;
+        rotation.m[6] = 0;
+        rotation.m[7] = 0;
+        
+        rotation.m[8] = 0;
+        rotation.m[9] = 0;
+        rotation.m[10] = 1;
+        rotation.m[11] = 0;
+        
+        rotation.m[12] = -std::sin(angle);
+        rotation.m[13] = 0;
+        rotation.m[14] = 0;
+        rotation.m[15] = std::cos(angle);
 
         return rotation;
     }
 
-    static std::array<float, 25> getYWRotationMatrix(float angle) {
-        std::array<float, 25> rotation{};
+    static XrMatrix4x4f getYWRotationMatrix(float angle) {
+        XrMatrix4x4f rotation{};
 
-        rotation[0] = 1;
-        rotation[1] = 0;
-        rotation[2] = 0;
-        rotation[3] = 0;
-        rotation[4] = 0;
+        rotation.m[0] = 1;
+        rotation.m[1] = 0;
+        rotation.m[2] = 0;
+        rotation.m[3] = 0;
 
-        rotation[5] = 0;
-        rotation[6] = std::cos(angle);
-        rotation[7] = 0;
-        rotation[8] = -std::sin(angle);
-        rotation[9] = 0;
+        rotation.m[4] = 0;
+        rotation.m[5] = std::cos(angle);
+        rotation.m[6] = 0;
+        rotation.m[7] = -std::sin(angle);
 
-        rotation[10] = 0;
-        rotation[11] = 0;
-        rotation[12] = 1;
-        rotation[13] = 0;
-        rotation[14] = 0;
+        rotation.m[8] = 0;
+        rotation.m[9] = 0;
+        rotation.m[10] = 1;
+        rotation.m[11] = 0;
 
-        rotation[15] = 0;
-        rotation[16] = std::sin(angle);
-        rotation[17] = 0;
-        rotation[18] = std::cos(angle);
-        rotation[19] = 0;
-
-        rotation[20] = 0;
-        rotation[21] = 0;
-        rotation[22] = 0;
-        rotation[23] = 0;
-        rotation[24] = 1;
+        rotation.m[12] = 0;
+        rotation.m[13] = std::sin(angle);
+        rotation.m[14] = 0;
+        rotation.m[15] = std::cos(angle);
 
         return rotation;
     }
 
-    static std::array<float, 25> getZWRotationMatrix(float angle) {
-        std::array<float, 25> rotation{};
+    static XrMatrix4x4f getZWRotationMatrix(float angle) {
+        XrMatrix4x4f rotation{};
 
-        rotation[0] = 1;
-        rotation[1] = 0;
-        rotation[2] = 0;
-        rotation[3] = 0;
-        rotation[4] = 0;
+        rotation.m[0] = 1;
+        rotation.m[1] = 0;
+        rotation.m[2] = 0;
+        rotation.m[3] = 0;
 
-        rotation[5] = 0;
-        rotation[6] = 1;
-        rotation[7] = 0;
-        rotation[8] = 0;
-        rotation[9] = 0;
+        rotation.m[4] = 0;
+        rotation.m[5] = 1;
+        rotation.m[6] = 0;
+        rotation.m[7] = 0;
 
-        rotation[10] = 0;
-        rotation[11] = 0;
-        rotation[12] = std::cos(angle);
-        rotation[13] = -std::sin(angle);
-        rotation[14] = 0;
+        rotation.m[8] = 0;
+        rotation.m[9] = 0;
+        rotation.m[10] = std::cos(angle);
+        rotation.m[11] = -std::sin(angle);
 
-        rotation[15] = 0;
-        rotation[16] = 0;
-        rotation[17] = std::sin(angle);
-        rotation[18] = std::cos(angle);
-        rotation[19] = 0;
-
-        rotation[20] = 0;
-        rotation[21] = 0;
-        rotation[22] = 0;
-        rotation[23] = 0;
-        rotation[24] = 1;
+        rotation.m[12] = 0;
+        rotation.m[13] = 0;
+        rotation.m[14] = std::sin(angle);
+        rotation.m[15] = std::cos(angle);
 
         return rotation;
     }

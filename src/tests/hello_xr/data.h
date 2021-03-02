@@ -56,7 +56,7 @@ float c[] = {0, 0, 0, 0};
 
 
 std::vector<Iris> tess = {
-    PNTW(c, c, c, b), PNTC(c, c, c, c),
+    PNTW(c,c,c,b),	PNTC(c,c,c,c),
     PNTC(c,c,b,c),	PNTC(c,c,c,c),
     PNTC(c,b,c,c),	PNTC(c,c,c,c),
     PNTC(b,c,c,c),	PNTC(c,c,c,c),

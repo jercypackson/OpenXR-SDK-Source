@@ -260,6 +260,150 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\5de5b792e05fdc922be41a16f47a48bd\xr_generated_api_dump.hpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating xr_generated_api_dump.hpp using C:/Python39/python.exe on api_dump_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_api_dump.hpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\api_dump_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;C:\data\repos\4D-OpenXR\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\src\api_layers\xr_generated_api_dump.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating xr_generated_api_dump.hpp using C:/Python39/python.exe on api_dump_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_api_dump.hpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\api_dump_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;C:\data\repos\4D-OpenXR\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\src\api_layers\xr_generated_api_dump.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating xr_generated_api_dump.hpp using C:/Python39/python.exe on api_dump_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_api_dump.hpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\api_dump_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;C:\data\repos\4D-OpenXR\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\src\api_layers\xr_generated_api_dump.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating xr_generated_api_dump.hpp using C:/Python39/python.exe on api_dump_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_api_dump.hpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\api_dump_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;C:\data\repos\4D-OpenXR\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\src\api_layers\xr_generated_api_dump.hpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\5de5b792e05fdc922be41a16f47a48bd\xr_generated_api_dump.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating xr_generated_api_dump.cpp using C:/Python39/python.exe on api_dump_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_api_dump.cpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\api_dump_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;C:\data\repos\4D-OpenXR\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\data\repos\4D-OpenXR\src\api_layers\xr_generated_api_dump.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating xr_generated_api_dump.cpp using C:/Python39/python.exe on api_dump_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_api_dump.cpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\api_dump_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;C:\data\repos\4D-OpenXR\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\data\repos\4D-OpenXR\src\api_layers\xr_generated_api_dump.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating xr_generated_api_dump.cpp using C:/Python39/python.exe on api_dump_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_api_dump.cpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\api_dump_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;C:\data\repos\4D-OpenXR\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\data\repos\4D-OpenXR\src\api_layers\xr_generated_api_dump.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating xr_generated_api_dump.cpp using C:/Python39/python.exe on api_dump_generator.py</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd C:\data\repos\4D-OpenXR\src\api_layers
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E env PYTHONPATH=C:/data/repos/4D-OpenXR/specification/scripts;C:/data/repos/4D-OpenXR/src/scripts; C:/Python39/python.exe C:/data/repos/4D-OpenXR/src/scripts/src_genxr.py -registry C:/data/repos/4D-OpenXR/specification/registry/xr.xml xr_generated_api_dump.cpp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\specification\registry\xr.xml;C:\data\repos\4D-OpenXR\specification\scripts\generator.py;C:\data\repos\4D-OpenXR\specification\scripts\reg.py;C:\data\repos\4D-OpenXR\src\scripts\api_dump_generator.py;C:\data\repos\4D-OpenXR\src\scripts\src_genxr.py;C:\data\repos\4D-OpenXR\src\scripts\automatic_source_generator.py;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\data\repos\4D-OpenXR\src\api_layers\xr_generated_api_dump.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
     <CustomBuild Include="C:\data\repos\4D-OpenXR\CMakeFiles\5de5b792e05fdc922be41a16f47a48bd\XrApiLayer_api_dump.json.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating API Layer JSON C:/data/repos/4D-OpenXR/src/api_layers/XrApiLayer_api_dump.json using -f C:/data/repos/4D-OpenXR/src/api_layers/XrApiLayer_api_dump.json -n LUNARG_api_dump -l $^&lt;TARGET_FILE_NAME:XrApiLayer_api_dump^&gt; -a 1.0 -v 1  -d API Layer to record api calls as they occur</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
